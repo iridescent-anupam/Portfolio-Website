@@ -3327,3 +3327,25 @@
     transform: translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0) scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1)) rotate(var(--tw-exit-rotate, 0));
   }
 }
+
+@layer utilities {
+  .glass-panel {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-xl;
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-md bg-black/40 border border-white/10 hover:border-cyan-500/50 transition-all duration-300;
+  }
+  
+  .neon-text {
+    text-shadow: 0 0 10px rgba(0, 245, 255, 0.5), 0 0 20px rgba(0, 245, 255, 0.3);
+  }
+  
+  .neon-border {
+    box-shadow: 0 0 10px rgba(0, 245, 255, 0.3), inset 0 0 10px rgba(0, 245, 255, 0.1);
+  }
+  
+  .gradient-void {
+    background: radial-gradient(circle at 50% 50%, #1a1f35 0%, #050810 100%);
+  }
+}

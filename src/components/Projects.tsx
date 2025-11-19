@@ -4,6 +4,7 @@ import {
   ExternalLink,
   Star,
 } from "lucide-react";
+import { motion } from "framer-motion";
 import { projects } from "../data/content";
 import { ProjectModal } from "./ProjectModal";
 import { useState } from "react";
@@ -86,7 +87,13 @@ export function Projects() {
         </div>
 
         {/* Bento Grid Layout - Cinematic Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ staggerChildren: 0.1 }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto"
+        >
           {projects.map((project, index) => {
             // Create varied layouts
             const isFeatured = index === 0;
@@ -94,33 +101,34 @@ export function Projects() {
             const isTall = index === 2;
 
             return (
-              <div
+              <motion.div
                 key={project.id}
-                className={`group relative cursor-pointer ${
-                  isFeatured
-                    ? "md:col-span-2 md:row-span-2"
-                    : ""
-                } ${isWide ? "md:col-span-2" : ""} ${isTall ? "md:row-span-2" : ""}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className={`group relative cursor-pointer ${isFeatured
+                  ? "md:col-span-2 md:row-span-2"
+                  : ""
+                  } ${isWide ? "md:col-span-2" : ""} ${isTall ? "md:row-span-2" : ""}`}
                 onClick={() => handleProjectClick(project)}
               >
                 <div
-                  className={`h-full ${
-                    index % 4 === 0
-                      ? "gradient-blade-runner"
-                      : index % 4 === 1
-                        ? "gradient-spice"
-                        : index % 4 === 2
-                          ? "gradient-cyber"
-                          : "gradient-dune"
-                  } rounded-3xl p-[2px] shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 hover:rotate-1 ${
-                    index % 4 === 0
+                  className={`h-full ${index % 4 === 0
+                    ? "gradient-blade-runner"
+                    : index % 4 === 1
+                      ? "gradient-spice"
+                      : index % 4 === 2
+                        ? "gradient-cyber"
+                        : "gradient-dune"
+                    } rounded-3xl p-[2px] shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 hover:rotate-1 ${index % 4 === 0
                       ? "hover:glow-cyan"
                       : index % 4 === 1
                         ? "hover:glow-orange"
                         : index % 4 === 2
                           ? "hover:glow-cyan"
                           : "hover:glow-orange"
-                  }`}
+                    }`}
                 >
                   <div
                     className="h-full rounded-[22px] p-8 flex flex-col"
@@ -227,12 +235,12 @@ export function Projects() {
                           rel="noopener noreferrer"
                           className="flex items-center gap-2 text-sm font-accent tracking-wider text-gray-400 transition-colors"
                           onMouseEnter={(e) =>
-                            (e.currentTarget.style.color =
-                              "#00F0FF")
+                          (e.currentTarget.style.color =
+                            "#00F0FF")
                           }
                           onMouseLeave={(e) =>
-                            (e.currentTarget.style.color =
-                              "#9CA3AF")
+                          (e.currentTarget.style.color =
+                            "#9CA3AF")
                           }
                         >
                           <Github className="w-4 h-4" />
@@ -254,10 +262,10 @@ export function Projects() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Fun CTA */}
         <div className="mt-16 text-center">

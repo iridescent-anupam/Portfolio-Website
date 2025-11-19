@@ -31,8 +31,35 @@ export const coreCompetencies = [
   "API Design & Integration Architecture",
 ];
 
+export interface ProjectMedia {
+  type: "video" | "image" | "pdf";
+  url: string;
+  title: string;
+  thumbnail?: string;
+}
+
+export interface Project {
+  id: string;
+  title: string;
+  role: string;
+  company: string;
+  year: string;
+  duration: string;
+  image: string;
+  description: string;
+  challenge: string;
+  solution: string;
+  fullDescription: string;
+  metrics: { value: string; label: string }[];
+  tags: string[];
+  technologies: string[];
+  liveUrl?: string;
+  github?: string;
+  media?: ProjectMedia[];
+}
+
 // Projects - Brief for homepage, full details available
-export const projects = [
+export const projects: Project[] = [
   {
     id: "pco-connect",
     title: "PCO Connect",
