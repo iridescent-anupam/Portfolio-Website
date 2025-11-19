@@ -6,7 +6,6 @@ import { Projects } from "./components/Projects";
 import { Experience } from "./components/Experience";
 import { Skills } from "./components/Skills";
 import { Education } from "./components/Education";
-import { Personal } from "./components/Personal"; // Added import for Personal
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 
@@ -58,7 +57,6 @@ export default function App() {
         <Experience />
         <Skills />
         <Education />
-        <Personal />
         <Contact />
       </motion.main>
       <Footer />

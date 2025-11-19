@@ -50,26 +50,12 @@ export interface Project {
   challenge: string;
   solution: string;
   fullDescription: string;
-  // Case Study Fields
-  problemStatement?: string;
-  discovery?: string;
-  process?: { title: string; description: string; icon?: string }[];
-  learnings?: string[];
   metrics: { value: string; label: string }[];
   tags: string[];
   technologies: string[];
   liveUrl?: string;
   github?: string;
   media?: ProjectMedia[];
-}
-
-export interface PersonalInterest {
-  id: string;
-  title: string;
-  category: "reading" | "travel" | "gaming" | "photography" | "music" | "other";
-  image?: string;
-  description?: string;
-  link?: string;
 }
 
 // Projects - Brief for homepage, full details available
@@ -84,30 +70,23 @@ export const projects: Project[] = [
     image:
       "https://teachwithtvw.org/wp-content/uploads/2023/05/TWT_FeatureImage_1200x628.jpg",
     description:
-      "Led end-to-end product delivery of a statewide civic education platform to increase political engagement among Washington State residents.",
+      "Led end-to-end product delivery of a statewide civic education platform to increase political engagement among Washington State residents, particularly young voters (18-24).",
     challenge:
-      "Only 16% of 18-24 year-olds voted in 2023 elections due to fragmented county-level information and lack of accessible resources.",
-    problemStatement: "Young voters (18-24) in Washington State are disengaged from local politics because information about Precinct Committee Officers (PCOs) is fragmented, inaccessible, and difficult to understand.",
+      "Only 16% of 18-24 year-olds voted in 2023 elections due to fragmented county-level information and lack of accessible resources about Precinct Committee Officers (PCOs).",
     solution:
-      "Built an AI-accelerated platform using Next.js 15, TypeScript, React 19, integrating county-level PCO directories and mapping.",
-    discovery: "Conducted user interviews with 15 young voters and found that 80% didn't know what a PCO was. Analyzed existing county websites and found 39 different formats for PCO data.",
-    process: [
-      { title: "Research", description: "Interviewed stakeholders and potential users to identify key barriers." },
-      { title: "Prototyping", description: "Created low-fidelity wireframes to test navigation and information architecture." },
-      { title: "Development", description: "Built the platform using AI-assisted coding to accelerate delivery." },
-      { title: "Testing", description: "Conducted usability testing with 10 users to refine the interface." }
-    ],
-    learnings: [
-      "AI-accelerated development can reduce coding time by 40% but requires strict code review.",
-      "Centralizing fragmented government data requires robust data cleaning pipelines.",
-      "Accessibility (WCAG) must be a priority from day one for civic tech."
-    ],
+      "Built an AI-accelerated platform using Next.js 15, TypeScript, React 19, integrating county-level PCO directories, U.S. Census Geocoding API, and interactive mapping to centralize civic information.",
     fullDescription: `Led the end-to-end product delivery of PCO Connect, a statewide civic education website designed to increase political engagement among Washington State residents, particularly young voters (18-24), by demystifying the role of Precinct Committee Officers (PCOs).
-    
-    Key Contributions:
-    • Defined product vision, requirements, and roadmap to address low youth civic engagement.
-    • Built the platform using AI-accelerated development in Cursor with Next.js 15, TypeScript, React 19, Tailwind CSS, and shadcn/UI.
-    • Architected a scalable backend using Next.js API routes, integrating county-level PCO directories.`,
+
+Key Contributions:
+• Defined product vision, requirements, and roadmap to address low youth civic engagement (only 16% of 18-24 year-olds voted in 2023), translating stakeholder needs into technical specifications and user stories.
+• Built the platform using AI-accelerated development in Cursor with Next.js 15, TypeScript, React 19, Tailwind CSS, and shadcn/UI, demonstrating hands-on technical product leadership.
+• Architected a scalable backend using Next.js API routes, integrating county-level PCO directories from JSON datasets, U.S. Census Geocoding API for address-to-county lookup, and Excel-to-JSON data pipeline for flexible content management.
+• Designed and implemented key features: What is a PCO, Become a PCO (eligibility, timeline, myth vs. fact), Party Platforms comparison, Find Your Precinct (county directory), and Resources hub with videos and FAQs.
+• Ensured accessibility-first design (WCAG compliance), mobile responsiveness, and optimal performance through React-Leaflet integration and OpenStreetMap tiles.
+• Delivered comprehensive technical documentation including system architecture diagrams, API specifications, deployment runbook, and user guide for seamless handoff and future iteration.
+• Successfully deployed on Netlify with CI/CD pipeline, resolving React 19 peer dependency conflicts and Node version compatibility for production stability.
+
+Impact: Centralized fragmented county-level information into a single, user-friendly platform that lowers barriers to civic participation and empowers residents to take meaningful action in grassroots politics.`,
     metrics: [
       { value: "1", label: "Statewide Platform" },
       { value: "39", label: "Counties Covered" },
@@ -158,29 +137,22 @@ export const projects: Project[] = [
     image:
       "https://images.unsplash.com/photo-1741636174266-a090f9427ec0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHVkZW50JTIwY2FtcHVzJTIwZXZlbnRzfGVufDF8fHx8MTc2MzQyOTUwOXww&ixlib=rb-4.1.0&q=80&w=1080",
     description:
-      "Designed and prototyped a platform integrated into Canvas LMS to create a personalized hub helping students find events.",
+      "Designed and prototyped a platform integrated into Canvas LMS to create a personalized hub helping students find events, connect with peers, and feel a sense of belonging.",
     challenge:
-      "Students struggled to discover campus events and often felt anxious about attending alone, leading to low engagement.",
-    problemStatement: "University students feel isolated and miss out on campus events because current discovery tools are disconnected from their daily workflow (Canvas).",
+      "Students struggled to discover campus events and often felt anxious about attending alone, leading to low engagement and feelings of isolation.",
     solution:
-      "Created a Netflix-style interface with personalized 'For You' feed, social visibility showing classmate attendance, and smart filters.",
-    discovery: "Surveyed 50+ students: 70% said they would attend more events if they knew a friend was going. Identified Canvas as the most frequented platform.",
-    process: [
-      { title: "User Research", description: "Conducted surveys and interviews to understand student pain points." },
-      { title: "Ideation", description: "Brainstormed solutions using 'How Might We' questions." },
-      { title: "Prototyping", description: "Created high-fidelity prototypes in Figma." },
-      { title: "Validation", description: "Tested the prototype with students to validate the social features." }
-    ],
-    learnings: [
-      "Social proof is a powerful motivator for event attendance.",
-      "Integration with existing tools (Canvas) reduces friction for adoption.",
-      "Personalization is key to relevance in a crowded information landscape."
-    ],
-    fullDescription: `We designed and prototyped Canvas+ Events, a platform integrated directly into the Canvas LMS to create a centralized, personalized hub that helps students find events, connect with peers, and feel a true sense of belonging.
-    
-    Key features include:
-    • A personalized "For You" feed that recommends events based on a student's major, interests, and past attendance.
-    • A social visibility layer that shows which classmates are attending an event.`,
+      "Created a Netflix-style interface with personalized 'For You' feed, social visibility showing classmate attendance, and smart filters integrated directly into Canvas LMS.",
+    fullDescription: `We designed and prototyped Canvas+ Events, a platform integrated directly into the Canvas LMS to create a centralized, personalized hub that helps students find events, connect with peers, and feel a true sense of belonging. It features a "Netflix-style" interface with visual, scrollable event cards, making discovery intuitive and engaging.
+
+Key features include:
+• A personalized "For You" feed that recommends events based on a student's major, interests, and past attendance.
+• A social visibility layer that shows which classmates are attending an event, reducing the anxiety of showing up alone.
+• Smart filters and seamless calendar integration to make planning effortless.
+
+As the Product Manager, I led our team through an end-to-end design process that went beyond surface-level features. My focus was on a deep, human-centered strategy, applying key academic frameworks to our design:
+• We started by identifying student "be-goals" (to be connected, to be included) and designed to meet fundamental psychological needs for relatedness and competence, drawing on Hassenzahl's models.
+• Our design accounted for Kahneman's two selves: we created a seamless experiencing self journey while ensuring the remembering self would retain a positive story of connection and belonging.
+• Grounded in the work of Mekler & Hornbæk, we designed for meaning by focusing on connectedness, purpose, and coherence to foster eudaimonic well-being—not just a useful tool, but a platform for growth.`,
     metrics: [
       { value: "100%", label: "Canvas Integration" },
       { value: "5", label: "Key Features" },
@@ -225,28 +197,33 @@ export const projects: Project[] = [
     image:
       "https://images.ctfassets.net/2pyx8rwuvz6x/6y134GLJ4XZWMPsLmTPu9M/01b4965f714dc63085e46dfd905a8096/optimized_JM_Summer_Trends_Pin_Grid.jpg?fm=webp&q=85",
     description:
-      "Developed transformation strategy evolving Pinterest from passive inspiration platform into interactive ecosystem.",
+      "Developed transformation strategy evolving Pinterest from passive inspiration platform into interactive ecosystem where users discover, create, and take action.",
     challenge:
       "Pinterest faced challenges with ad density, international monetization, and needed to transform from passive browsing to active engagement.",
-    problemStatement: "Pinterest has high engagement but low conversion to action, limiting its revenue potential compared to competitors.",
     solution:
-      "Created $6-7M 3-year strategic roadmap prioritizing Creator Monetization, Visual Shopping Hub, and Community Features.",
-    discovery: "Analyzed Pinterest's 10-K reports and competitor landscape. Identified gap in 'social commerce' features.",
-    process: [
-      { title: "Market Analysis", description: "Evaluated competitors and market trends." },
-      { title: "Financial Modeling", description: "Projected revenue growth and ROI for proposed initiatives." },
-      { title: "Roadmap Development", description: "Prioritized features based on RICE score." }
-    ],
-    learnings: [
-      "Strategic pivots require careful balancing of user experience and monetization.",
-      "Buy vs. Build analysis is critical for efficient resource allocation.",
-      "Community features can drive retention and organic growth."
-    ],
+      "Created $6-7M 3-year strategic roadmap with Buy vs. Build analysis, prioritizing Creator Monetization, Visual Shopping Hub, and Community Features.",
     fullDescription: `Developed a transformation strategy that evolves Pinterest from a passive inspiration platform into an interactive ecosystem where users can discover, create, and take action.
-    
-    Our roadmap prioritizes initiatives using a custom framework that balances business value, customer impact, and technical feasibility:
-    • Creator Monetization & Visual Shopping Hub ($1.28M-$1.39M)
-    • Localized Performance Infrastructure ($2.26M-$2.4M)`,
+
+Our process began with a thorough current state analysis across Product, Customer, Business, and Technology dimensions. This revealed key insights:
+• Pinterest's unique position at the intersection of search, social, and commerce
+• Strong engagement metrics but challenges with ad density and international monetization
+• Technical strengths in AI/ML with opportunities for infrastructure optimization
+
+From this analysis, we identified our North Star metric: Weekly Active Users (WAU), and developed three strategic objectives:
+1️⃣ Enhance discoverability and usability
+2️⃣ Accelerate revenue growth and diversify income streams
+3️⃣ Foster community engagement and user-generated content
+
+Our roadmap prioritizes initiatives using a custom framework that balances business value, customer impact, and technical feasibility:
+• Creator Monetization & Visual Shopping Hub ($1.28M-$1.39M)
+• Localized Performance Infrastructure ($2.26M-$2.4M)
+• Enhanced Discovery & UX improvements ($610K-$1.02M)
+• Strategic Brand & Influencer Partnerships ($1M-$1.26M)
+• Community-Building Features ($880K-$950K)
+
+We applied a strategic Buy vs. Build analysis to each initiative, determining where to develop in-house capabilities versus leveraging partnerships.
+
+With a total investment of $6-7M over three years, our financial projections show significant ROI: 5.27% increase in conversion revenue, 35% reduction in cloud costs, and substantial improvements in user engagement metrics.`,
     metrics: [
       { value: "$6-7M", label: "Investment" },
       { value: "5.27%", label: "Revenue Growth" },
@@ -275,28 +252,42 @@ export const projects: Project[] = [
     image:
       "https://dinakaran.dev/blog/assets/images/duolingo.jpg",
     description:
-      "Comprehensive project reimagining Duolingo's future through innovative features LingoLores and DuoDiscuss.",
+      "Comprehensive project reimagining Duolingo's future through innovative features LingoLores (cultural storytelling) and DuoDiscuss (community forums).",
     challenge:
-      "Language learning lacks cultural context and community engagement, limiting user retention.",
-    problemStatement: "Duolingo users achieve language proficiency but lack cultural fluency and community connection, leading to churn after reaching intermediate levels.",
+      "Language learning lacks cultural context and community engagement, limiting user retention and depth of learning experience.",
     solution:
-      "Proposed LingoLores for gamified cultural storytelling and DuoDiscuss for collaborative community learning.",
-    discovery: "User research indicated that 60% of learners felt 'lonely' in their learning journey.",
-    process: [
-      { title: "User Research", description: "Conducted interviews to understand learner motivations." },
-      { title: "Feature Definition", description: "Defined MVP features for LingoLores and DuoDiscuss." },
-      { title: "Go-to-Market", description: "Developed a launch strategy including PR FAQ and investor pitch." }
-    ],
-    learnings: [
-      "Gamification must be balanced with meaningful educational content.",
-      "Community features require robust moderation strategies.",
-      "Cultural context is essential for true language mastery."
-    ],
+      "Proposed LingoLores for gamified cultural storytelling and DuoDiscuss for collaborative community learning, with full MVP, roadmap, and investor pitch.",
     fullDescription: `A comprehensive project that reimagined Duolingo's future through innovative features and robust management frameworks.
-    
-    💡 Feature Proposals:
-    • LingoLores: Gamified cultural storytelling for immersive learning
-    • DuoDiscuss: Community forums for collaborative feedback`,
+
+🔍 Strategic Analysis:
+Conducted user research and SWOT analysis aligned with Duolingo's OKRs.
+
+🎭 Agile Roles:
+Adopted roles to support Agile workflows:
+• Product Manager: Defined vision and strategy
+• Product Owner: Managed backlog and priorities
+• Project Manager: Oversaw timelines and resources
+• Scrum Master: Facilitated ceremonies and removed obstacles
+
+💡 Feature Proposals:
+• LingoLores: Gamified cultural storytelling for immersive learning
+• DuoDiscuss: Community forums for collaborative feedback
+
+🧠 Artifacts Delivered:
+• Project Charter: Defined scope and goals
+• Buy vs Build Analysis: Evaluated development options
+• PR FAQ + MVP: Drafted materials for feature launch
+• Investor Pitch: Built a funding case
+• Roadmap: Mapped feature timelines
+• Backlog: Prioritized user stories
+
+📊 Project Management:
+• Network Mapping: Tracked dependencies
+• Change Management: Handled scope shifts
+• Risk Mitigation: Addressed potential blockers
+
+🚀 Launch Planning:
+Finalized launch for LingoLores with defined feature purpose, strategy, progress updates, rollout steps, and launch strategy.`,
     metrics: [
       { value: "2", label: "New Features" },
       { value: "100%", label: "Agile Framework" },
@@ -317,37 +308,6 @@ export const projects: Project[] = [
       "Investor Pitch",
     ],
   },
-];
-
-export const personalInterests: PersonalInterest[] = [
-  {
-    id: "reading",
-    title: "Sci-Fi & Philosophy",
-    category: "reading",
-    description: "Currently reading 'Dune' and exploring Stoicism.",
-    image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    id: "travel",
-    title: "Exploring the PNW",
-    category: "travel",
-    description: "Hiking through the Cascades and finding hidden coffee shops in Seattle.",
-    image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    id: "gaming",
-    title: "Strategy Games",
-    category: "gaming",
-    description: "Civilization VI and Stellaris enthusiast.",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    id: "photography",
-    title: "Street Photography",
-    category: "photography",
-    description: "Capturing the urban rhythm of the city.",
-    image: "https://images.unsplash.com/photo-1495745966610-2a67f2297e5e?auto=format&fit=crop&q=80&w=800",
-  }
 ];
 
 // Experience
