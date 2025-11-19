@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Michroma&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* Dune/Blade Runner Cinematic Color Palette */
+  --color-desert-sand: #E8C89A;
+  --color-desert-gold: #F4C430;
+  --color-spice-orange: #FF8C5A;
+  --color-dune-bronze: #C4A574;
+  
+  --color-neon-cyan: #00F5FF;
+  --color-neon-magenta: #FF3D8F;
+  --color-neon-orange: #FFA066;
+  --color-neon-purple: #D946FF;
+  
+  --color-void-black: #0A0E1A;
+  --color-deep-space: #131721;
+  --color-midnight-blue: #1A1F3A;
+  --color-steel-gray: #2D3748;
+  
+  --font-family-display: 'Orbitron', monospace;
+  --font-family-body: 'Rajdhani', sans-serif;
+  --font-family-accent: 'Michroma', sans-serif;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: var(--font-family-body);
+    background: #050810;
+    color: #E5E7EB;
+    overflow-x: hidden;
+  }
+
+  /* Typography */
+  h1 {
+    font-family: var(--font-family-display);
+    letter-spacing: 0.05em;
+  }
+
+  h2 {
+    font-family: var(--font-family-display);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-family: var(--font-family-display);
+    color: var(--color-neon-cyan);
+    letter-spacing: 0.05em;
+  }
+
+  h4 {
+    font-family: var(--font-family-accent);
+    color: var(--color-desert-gold);
+    letter-spacing: 0.1em;
+  }
+
+  p {
+    font-family: var(--font-family-body);
+    color: #CBD5E0;
+    font-weight: 400;
+  }
+}
+
+@layer utilities {
+  /* Custom font utilities */
+  .font-display {
+    font-family: var(--font-family-display);
+  }
+
+  .font-body {
+    font-family: var(--font-family-body);
+  }
+
+  .font-accent {
+    font-family: var(--font-family-accent);
+  }
+
+  /* Cinematic Gradients */
+  .gradient-dune {
+    background: linear-gradient(135deg, #D4A574, #C89B3C, #FF6B35);
+  }
+
+  .gradient-blade-runner {
+    background: linear-gradient(135deg, #00F0FF, #B721FF, #FF006E);
+  }
+
+  .gradient-spice {
+    background: linear-gradient(135deg, #FF6B35, #C89B3C, #8B6F47);
+  }
+
+  .gradient-cyber {
+    background: linear-gradient(135deg, #00F0FF, #FF8C42);
+  }
+
+  .gradient-void {
+    background: linear-gradient(180deg, #0A0E1A, #131721, #1A1F3A);
+  }
+
+  /* Glowing effects */
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4), 0 0 40px rgba(0, 240, 255, 0.2);
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.4), 0 0 40px rgba(255, 107, 53, 0.2);
+  }
+
+  .glow-magenta {
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.4), 0 0 40px rgba(255, 0, 110, 0.2);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(183, 33, 255, 0.4), 0 0 40px rgba(183, 33, 255, 0.2);
+  }
+
+  /* Text glow */
+  .text-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.6), 0 0 20px rgba(0, 240, 255, 0.3);
+  }
+
+  .text-glow-orange {
+    text-shadow: 0 0 10px rgba(255, 140, 66, 0.6), 0 0 20px rgba(255, 140, 66, 0.3);
+  }
+
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.4), 0 0 40px rgba(0, 240, 255, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.6), 0 0 60px rgba(0, 240, 255, 0.4);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes neon-flicker {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    75% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scan-line {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    animation: gradient-shift 8s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  .animate-neon-flicker {
+    animation: neon-flicker 2s ease-in-out infinite;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    transition: all 0.5s;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 20px 60px rgba(0, 240, 255, 0.3), 0 0 40px rgba(255, 107, 53, 0.2);
+  }
+
+  /* Border gradient effects */
+  .border-gradient-cyber {
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+  }
+
+  .border-gradient-cyber::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, #00F0FF, #FF8C42, #FF006E);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .border-gradient-dune {
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+  }
+
+  .border-gradient-dune::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, #C89B3C, #FF6B35);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  /* Scan line effect overlay */
+  .scan-lines::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      transparent 50%,
+      rgba(0, 240, 255, 0.03) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    animation: scan-line 8s linear infinite;
+  }
+
+  /* Glass morphism with cinematic tint */
+  .glass-cyber {
+    background: rgba(10, 14, 26, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+  }
+
+  .glass-dune {
+    background: rgba(26, 31, 58, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 165, 116, 0.3);
+  }
+}
