@@ -3,10 +3,10 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
+  { label: "About", href: "#about" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
@@ -42,8 +42,8 @@ export function Navigation() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? "glass-cyber backdrop-blur-md shadow-lg border-b border-cyan-500/20"
-          : "backdrop-blur-sm bg-transparent"
+        ? "glass-cyber backdrop-blur-md shadow-lg border-b border-cyan-500/20"
+        : "backdrop-blur-sm bg-transparent"
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -120,8 +120,8 @@ export function Navigation() {
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`px-4 py-3 rounded-lg transition-all font-accent tracking-wider ${activeSection === item.href.substring(1)
-                        ? "text-cyan-400 bg-cyan-500/10"
-                        : "text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/5"
+                      ? "text-cyan-400 bg-cyan-500/10"
+                      : "text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/5"
                       }`}
                   >
                     {item.label}
