@@ -34,25 +34,19 @@ export function Projects() {
         {/* Section Header - Cinematic */}
         <div className="text-center mb-16 relative">
           <div
-            className="absolute -top-12 left-1/2 -translate-x-1/2 text-8xl opacity-5"
-            style={{ color: "#00F5FF" }}
+            className="absolute -top-12 left-1/2 -translate-x-1/2 text-8xl opacity-5 text-[#00F5FF]"
           >
             💼
           </div>
 
           <div className="inline-block mb-6 relative">
             <div
-              className="px-6 py-3 glass-cyber rounded-full font-accent font-bold transform -rotate-2 glow-cyan tracking-widest"
-              style={{
-                color: "#00F5FF",
-                borderColor: "rgba(0, 245, 255, 0.3)",
-              }}
+              className="px-6 py-3 glass-cyber rounded-full font-accent font-bold transform -rotate-2 glow-cyan tracking-widest text-[#00F5FF] border border-[rgba(0,245,255,0.3)]"
             >
               ✨ FEATURED WORK
             </div>
             <div
-              className="absolute -top-2 -right-2 w-8 h-8 gradient-spice rounded-full flex items-center justify-center text-xs font-bold glow-orange"
-              style={{ color: "#FFFFFF", fontWeight: 700 }}
+              className="absolute -top-2 -right-2 w-8 h-8 gradient-spice rounded-full flex items-center justify-center text-xs font-bold glow-orange text-white"
             >
               4
             </div>
@@ -63,23 +57,17 @@ export function Projects() {
             <span className="relative">
               <span
                 className="gradient-dune bg-clip-text text-transparent"
-                style={{
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
               >
                 proud of
               </span>
               <Star
-                className="absolute -top-8 -right-8 w-8 h-8 animate-pulse-glow"
-                style={{ color: "#FFA066", fill: "#FFA066" }}
+                className="absolute -top-8 -right-8 w-8 h-8 animate-pulse-glow text-[#FFA066] fill-[#FFA066]"
               />
             </span>
           </h2>
 
           <p
-            className="text-xl max-w-3xl mx-auto font-body"
-            style={{ color: "#E5E7EB", fontWeight: 500 }}
+            className="text-xl max-w-3xl mx-auto font-body text-gray-200 font-medium"
           >
             Real products solving real problems, with measurable
             impact 📊
@@ -131,26 +119,20 @@ export function Projects() {
                     }`}
                 >
                   <div
-                    className="h-full rounded-[22px] p-8 flex flex-col"
-                    style={{ background: "#131721" }}
+                    className="h-full rounded-[22px] p-8 flex flex-col bg-[#131721]"
                   >
                     {/* Project Header */}
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
                         <div
-                          className="inline-block px-3 py-1 glass-dune rounded-full text-xs font-accent font-bold mb-3 transform -rotate-1 tracking-wider"
-                          style={{ color: "#C89B3C" }}
+                          className="inline-block px-3 py-1 glass-dune rounded-full text-xs font-accent font-bold mb-3 transform -rotate-1 tracking-wider text-[#C89B3C]"
                         >
                           {project.role ||
                             project.company ||
                             "Product Management"}
                         </div>
                         <h3
-                          className="mb-2 transition-colors"
-                          style={{
-                            color: "#FFFFFF",
-                            fontWeight: 600,
-                          }}
+                          className="mb-2 transition-colors text-white font-semibold"
                         >
                           {project.title}
                         </h3>
@@ -160,11 +142,7 @@ export function Projects() {
                         <div className="flex-shrink-0 ml-2">
                           <div className="w-12 h-12 gradient-cyber rounded-full flex items-center justify-center transform rotate-12 group-hover:rotate-0 transition-transform glow-cyan">
                             <Star
-                              className="w-6 h-6"
-                              style={{
-                                color: "#0A0E1A",
-                                fill: "#0A0E1A",
-                              }}
+                              className="w-6 h-6 text-[#0A0E1A] fill-[#0A0E1A]"
                             />
                           </div>
                         </div>
@@ -172,11 +150,7 @@ export function Projects() {
                     </div>
 
                     <p
-                      className={`mb-6 font-body ${isFeatured ? "text-lg" : ""}`}
-                      style={{
-                        color: "#D1D5DB",
-                        fontWeight: 500,
-                      }}
+                      className={`mb-6 font-body text-gray-300 font-medium ${isFeatured ? "text-lg" : ""}`}
                     >
                       {project.description}
                     </p>
@@ -187,15 +161,10 @@ export function Projects() {
                         {project.metrics.map((item, i) => (
                           <div
                             key={i}
-                            className="text-center p-3 glass-cyber rounded-xl"
-                            style={{
-                              borderColor:
-                                "rgba(0, 240, 255, 0.2)",
-                            }}
+                            className="text-center p-3 glass-cyber rounded-xl border border-[rgba(0,240,255,0.2)]"
                           >
                             <div
-                              className="text-2xl font-display font-bold text-glow-orange"
-                              style={{ color: "#FF8C42" }}
+                              className="text-2xl font-display font-bold text-glow-orange text-[#FF8C42]"
                             >
                               {item.value}
                             </div>
@@ -218,8 +187,7 @@ export function Projects() {
                         .map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1 glass-dune rounded-lg text-sm font-accent tracking-wider hover:glow-orange transition-all"
-                            style={{ color: "#C89B3C" }}
+                            className="px-3 py-1 glass-dune rounded-lg text-sm font-accent tracking-wider hover:glow-orange transition-all text-[#C89B3C]"
                           >
                             {tech}
                           </span>
@@ -233,15 +201,7 @@ export function Projects() {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-sm font-accent tracking-wider text-gray-400 transition-colors"
-                          onMouseEnter={(e) =>
-                          (e.currentTarget.style.color =
-                            "#00F0FF")
-                          }
-                          onMouseLeave={(e) =>
-                          (e.currentTarget.style.color =
-                            "#9CA3AF")
-                          }
+                          className="flex items-center gap-2 text-sm font-accent tracking-wider text-gray-400 transition-colors hover:text-[#00F0FF]"
                         >
                           <Github className="w-4 h-4" />
                           Code
@@ -252,8 +212,7 @@ export function Projects() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-4 py-2 gradient-blade-runner rounded-full text-sm font-accent font-bold hover:glow-cyan transition-all group/link tracking-wider"
-                          style={{ color: "#0A0E1A" }}
+                          className="flex items-center gap-2 px-4 py-2 gradient-blade-runner rounded-full text-sm font-accent font-bold hover:glow-cyan transition-all group/link tracking-wider text-[#0A0E1A]"
                         >
                           VIEW PROJECT
                           <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
@@ -271,13 +230,11 @@ export function Projects() {
         <div className="mt-16 text-center">
           <div className="inline-block p-[3px] gradient-blade-runner rounded-3xl transform -rotate-1 hover:rotate-0 transition-transform shadow-xl glow-cyan">
             <div
-              className="rounded-3xl p-8"
-              style={{ background: "#131721" }}
+              className="rounded-3xl p-8 bg-[#131721]"
             >
               <div className="text-5xl mb-4">🎯</div>
               <div
-                className="font-display font-bold text-2xl mb-2"
-                style={{ color: "#00F0FF" }}
+                className="font-display font-bold text-2xl mb-2 text-[#00F0FF]"
               >
                 Want to see more?
               </div>
@@ -289,8 +246,7 @@ export function Projects() {
                 href="https://github.com/iridescent-anupam"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 gradient-dune rounded-full font-accent font-bold hover:glow-orange transition-all tracking-wider"
-                style={{ color: "#0A0E1A" }}
+                className="inline-flex items-center gap-2 px-6 py-3 gradient-dune rounded-full font-accent font-bold hover:glow-orange transition-all tracking-wider text-[#0A0E1A]"
               >
                 <Github className="w-5 h-5" />
                 VISIT GITHUB

@@ -8,6 +8,8 @@ import { Skills } from "./components/Skills";
 import { Education } from "./components/Education";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { ScrollProgress } from "./components/ScrollProgress";
+import { BackToTop } from "./components/BackToTop";
 
 export default function App() {
   return (
@@ -59,6 +61,7 @@ export default function App() {
         <Education />
         <Contact />
       </motion.main>
+      <BackToTop />
       <Footer />
     </div>
   );
