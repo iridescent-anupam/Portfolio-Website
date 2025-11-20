@@ -54,13 +54,14 @@ export default function App() {
         transition={{ duration: 0.8 }}
       >
         <Hero />
-        <About />
         <Projects />
         <Experience />
         <Skills />
+        <About />
         <Education />
         <Contact />
       </motion.main>
+      <ScrollProgress />
       <BackToTop />
       <Footer />
     </div>

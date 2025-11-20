@@ -88,55 +88,63 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Left: Story */}
           <div className="space-y-6">
+            {/* Origin Story */}
             <div className="bg-gradient-to-br from-gray-50 to-white border-l-4 border-yellow-400 rounded-2xl p-8 shadow-lg transform hover:scale-105 transition-all">
+              <div className="text-sm font-bold text-yellow-600 mb-2 uppercase tracking-wider">Origin Story</div>
               <p className="text-lg text-gray-700 leading-relaxed">
-                I'm a{" "}
+                Started as an{" "}
                 <span className="font-bold text-gray-900">
-                  Technical Product Manager
-                </span>{" "}
-                who bridges the gap between
+                  engineer
+                </span>
+                , discovered I loved{" "}
                 <span className="px-2 py-1 bg-yellow-100 rounded mx-1 font-medium">
-                  business strategy
+                  translating user pain into solutions
                 </span>{" "}
-                and
-                <span className="px-2 py-1 bg-blue-100 rounded mx-1 font-medium">
-                  technical execution
-                </span>
-                .
+                more than writing code. That's when I knew product management was my calling.
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-8 shadow-lg transform hover:scale-105 transition-all">
-              <p className="text-lg text-gray-700 leading-relaxed">
-                With{" "}
-                <span className="font-bold text-gray-900">
-                  3+ years
+            {/* PM Philosophy */}
+            <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-8 shadow-lg transform hover:scale-105 transition-all border-2 border-orange-300">
+              <div className="text-sm font-bold text-orange-600 mb-2 uppercase tracking-wider">PM Philosophy</div>
+              <p className="text-lg text-gray-700 leading-relaxed font-medium italic">
+                "I believe the best PMs are{" "}
+                <span className="px-2 py-1 bg-orange-200 rounded mx-1 font-bold not-italic">
+                  translators
                 </span>{" "}
-                of experience at Lexmark and a MS from the
-                <span className="px-2 py-1 bg-purple-100 rounded mx-1 font-medium">
-                  University of Washington
-                </span>
-                , I've launched products that blend user needs
-                with business goals.
+                — between{" "}
+                <span className="font-bold text-gray-900 not-italic">users & engineers</span>,{" "}
+                <span className="font-bold text-gray-900 not-italic">data & intuition</span>,{" "}
+                <span className="font-bold text-gray-900 not-italic">vision & execution</span>."
               </p>
             </div>
 
+            {/* Beyond Work */}
             <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-8 shadow-lg transform hover:scale-105 transition-all">
+              <div className="text-sm font-bold text-purple-600 mb-2 uppercase tracking-wider">Beyond Work</div>
               <p className="text-lg text-gray-700 leading-relaxed">
-                I thrive on turning{" "}
-                <span className="font-bold text-gray-900">
-                  complex problems
+                When not building products, you'll find me exploring{" "}
+                <span className="px-2 py-1 bg-purple-100 rounded mx-1 font-medium">
+                  game design
                 </span>{" "}
-                into
-                <span className="px-2 py-1 bg-green-100 rounded mx-1 font-medium">
-                  elegant solutions
-                </span>{" "}
-                that drive
+                (UX at its finest) or binging{" "}
                 <span className="px-2 py-1 bg-pink-100 rounded mx-1 font-medium">
-                  real business impact
+                  sci-fi
                 </span>
                 .
               </p>
+              {/* CTA */}
+              <div className="mt-4 pt-4 border-t border-purple-200">
+                <a
+                  href="#projects"
+                  className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold transition-colors group"
+                >
+                  See how I apply this thinking in my work
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
 

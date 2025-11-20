@@ -117,9 +117,8 @@ export function Skills() {
                       {skillList.map((skill) => (
                         <div
                           key={skill}
-                          className={`group/skill px-4 py-2 bg-gray-50 hover:bg-gray-900 text-gray-700 hover:text-white rounded-xl transition-all transform hover:scale-105 cursor-default ${
-                            isLarge ? "text-base" : "text-sm"
-                          }`}
+                          className={`group/skill px-4 py-2 bg-gray-50 hover:bg-gray-900 text-gray-700 hover:text-white rounded-xl transition-all transform hover:scale-105 cursor-default ${isLarge ? "text-base" : "text-sm"
+                            }`}
                         >
                           <span className="font-medium">
                             {skill}
@@ -132,6 +131,11 @@ export function Skills() {
               </div>
             );
           })}
+        </div>
+
+        {/* ATS-Friendly Skills List (Hidden but machine-readable) */}
+        <div className="sr-only" aria-label="Skills for ATS">
+          Product Strategy, Roadmap Development, Product Lifecycle Management, Agile, Scrum, SAFe®, User Research, UX, Data-driven Decision Making, Stakeholder Management, OKRs, KPIs, A/B Testing, Product Analytics, Market Research, Product Prototyping, JavaScript, TypeScript, Python, C, C++, C#, SQL, MySQL, ReactJS, Next.js, .NET, HTML, CSS, Bootstrap, Microsoft Azure, Azure Functions, Azure DevOps, CI/CD Pipelines, Netlify, Vercel, Microsoft Dynamics 365 CRM, SAP Integration, ServiceNow, Power Automate, Power Apps, AI Builder, SaaS, Figma, Canva, FluentUI, Tailwind CSS, shadcn/UI, RESTful APIs, Postman, Git, Jira, Sprint Planning, Backlog Management, User Stories, Buy vs Build Analysis
         </div>
       </div>
     </section>

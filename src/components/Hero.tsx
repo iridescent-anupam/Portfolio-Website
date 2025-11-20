@@ -6,10 +6,12 @@ import profileImage from "../assets/profile.png";
 const personalInfo = {
   name: "Anupam Sanidhya",
   title: "Technical Product Manager",
-  tagline: "Building innovative solutions that bridge business strategy and user-centric design.",
+  tagline: "Built civic tech serving 39 counties across WA, USA | Doubled global operational efficiency at Lexmark International| Technical PM: Code → Strategy → Scale",
   location: "Seattle, WA",
   resume: "/path-to-your-resume.pdf" // TODO: Update with your resume link
 };
+
+const techStack = ["Product Strategy", "Azure DevOps", "Agile/SCRUM", "Dynamics 365", "Data-Driven PM"];
 
 export function Hero() {
   return (
@@ -84,6 +86,23 @@ export function Hero() {
               {personalInfo.tagline}
             </motion.p>
 
+            {/* Tech Stack Pills */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.9 }}
+              className="flex flex-wrap gap-2"
+            >
+              {techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1.5 text-xs font-accent font-bold tracking-wider bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 rounded-full hover:bg-cyan-500/20 transition-colors"
+                >
+                  {tech}
+                </span>
+              ))}
+            </motion.div>
+
             {/* Cinematic CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -93,10 +112,10 @@ export function Hero() {
             >
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 px-8 py-4 border-gradient-cyber rounded-xl font-accent font-bold hover:glow-cyan transition-all transform hover:-translate-y-1 tracking-wider bg-[#1A1F3A] text-white"
+                className="inline-flex items-center gap-2 px-8 py-4 border-gradient-cyber rounded-xl font-accent font-bold hover:glow-cyan transition-all transform hover:-translate-y-1 tracking-wider bg-[#1A1F3A] text-white relative"
               >
-                VIEW WORK
-                <ArrowRight className="w-5 h-5" />
+                <span className="relative z-10">VIEW WORK</span>
+                <ArrowRight className="w-5 h-5 relative z-10" />
               </a>
 
               <a
@@ -176,7 +195,7 @@ export function Hero() {
 
                 <div className="absolute -bottom-6 -right-6 gradient-spice rounded-xl p-4 transform rotate-6 hover:rotate-3 transition-all shadow-xl">
                   <div className="font-accent font-bold text-xs mb-1 tracking-wider text-[#0A0E1A]">CURRENTLY EXPLORING</div>
-                  <div className="text-sm font-body font-semibold text-[#0A0E1A]">Agentic AI & LLMs</div>
+                  <div className="text-sm font-body font-semibold text-[#0A0E1A]">Agentic AI Systems & Building with LLMs</div>
                 </div>
               </div>
             </div>

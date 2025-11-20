@@ -56,7 +56,7 @@ export function Projects() {
             Projects I'm{" "}
             <span className="relative">
               <span
-                className="gradient-dune bg-clip-text text-transparent"
+                className="inline-block text-[#ff6b35] text-glow-orange"
               >
                 proud of
               </span>
@@ -124,13 +124,21 @@ export function Projects() {
                     {/* Project Header */}
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
-                        <div
-                          className="inline-block px-3 py-1 glass-dune rounded-full text-xs font-accent font-bold mb-3 transform -rotate-1 tracking-wider text-[#C89B3C]"
-                        >
-                          {project.role ||
-                            project.company ||
-                            "Product Management"}
-                        </div>
+                        {index === 0 && (
+                          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-cyan-500/20 border border-cyan-500/50 rounded-full text-xs font-accent font-bold mb-3 tracking-wider text-cyan-400 glow-cyan">
+                            <Star className="w-3 h-3 fill-cyan-400" />
+                            FEATURED PROJECT
+                          </div>
+                        )}
+                        {index !== 0 && (
+                          <div
+                            className="inline-block px-3 py-1 glass-dune rounded-full text-xs font-accent font-bold mb-3 transform -rotate-1 tracking-wider text-[#C89B3C]"
+                          >
+                            {project.role ||
+                              project.company ||
+                              "Product Management"}
+                          </div>
+                        )}
                         <h3
                           className="mb-2 transition-colors text-white font-semibold"
                         >
