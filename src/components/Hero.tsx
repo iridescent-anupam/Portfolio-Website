@@ -6,7 +6,7 @@ import profileImage from "../assets/profile.png";
 const personalInfo = {
   name: "Anupam Sanidhya",
   title: "Technical Product Manager",
-  tagline: "Built civic tech serving 39 counties across WA, USA | Doubled global operational efficiency at Lexmark International| Technical PM: Code → Strategy → Scale",
+  tagline: "Built civic tech serving 39 counties across WA, USA | Doubled global operational efficiency at Lexmark International | Technical PM: Code → Strategy → Scale",
   location: "Seattle, WA",
   resume: "/path-to-your-resume.pdf" // TODO: Update with your resume link
 };

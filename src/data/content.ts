@@ -1,3 +1,11 @@
+import pcoConnectDoc from "../assets/PCO Connect Technical User Guide.docx";
+import smartGraphicsImg from "../assets/Design of a Smart Graphics System.jpg";
+import parkingSystemImg from "../assets/Intelligent_Self_Parking_System.jpg";
+import canvasEventsImg from "../assets/Canvas+ Events.jpg";
+import starbucksPdf from "../assets/Starbucks Strategy - Anupam Sanidhya.pdf";
+import canvasPdf from "../assets/Canvas+ Events Presentation.pdf";
+import canvasMaterialsPdf from "../assets/Canvas+ Events Captured materials.pdf";
+
 // Personal Information
 export const personalInfo = {
   name: "Anupam Sanidhya",
@@ -122,7 +130,7 @@ Impact: Centralized fragmented county-level information into a single, user-frie
       },
       {
         type: "pdf",
-        url: "https://docs.google.com/document/d/1XkLKeQXMYR0_K5eKk-tqfJUp_pUTnhP7/edit?usp=sharing&ouid=111184055108168585195&rtpof=true&sd=true",
+        url: pcoConnectDoc,
         title: "Technical Documentation & Product Spec",
       },
     ],
@@ -134,8 +142,7 @@ Impact: Centralized fragmented county-level information into a single, user-frie
     company: "University of Washington",
     year: "2025",
     duration: "May 2025 - Jun 2025",
-    image:
-      "https://images.unsplash.com/photo-1741636174266-a090f9427ec0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHVkZW50JTIwY2FtcHVzJTIwZXZlbnRzfGVufDF8fHx8MTc2MzQyOTUwOXww&ixlib=rb-4.1.0&q=80&w=1080",
+    image: canvasEventsImg,
     description:
       "Designed and prototyped a platform integrated into Canvas LMS to create a personalized hub helping students find events, connect with peers, and feel a sense of belonging.",
     challenge:
@@ -182,8 +189,13 @@ As the Product Manager, I led our team through an end-to-end design process that
       },
       {
         type: "pdf",
-        url: "https://drive.google.com/file/d/1GanLJke9CaDgGGfijonrWhI8GqN7KyS4/view?usp=drive_link",
+        url: canvasPdf,
         title: "Canvas+ Events Presentation",
+      },
+      {
+        type: "pdf",
+        url: canvasMaterialsPdf,
+        title: "Captured Materials",
       },
     ],
   },
@@ -241,6 +253,7 @@ With a total investment of $6-7M over three years, our financial projections sho
       "OKRs",
       "Roadmap Planning",
     ],
+    liveUrl: "https://drive.google.com/drive/folders/1eyrwk-DafMbp7wdNrlDsZAsApTsSUPQm",
   },
   {
     id: "duolingo-green-owls",
@@ -307,6 +320,118 @@ Finalized launch for LingoLores with defined feature purpose, strategy, progress
       "Roadmap",
       "Investor Pitch",
     ],
+    liveUrl: "https://drive.google.com/drive/folders/1I4spLG98BsyLow9zkN0hiNibY6WYIj74?usp=sharing",
+  },
+  {
+    id: "starbucks-strategy",
+    title: "Starbucks Strategy",
+    role: "Product Strategist",
+    company: "University of Washington",
+    year: "2025",
+    duration: "Mar 2025 - Mar 2025",
+    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80",
+    description: "Developed comprehensive product strategy proposal focusing on café experience revitalization, operational efficiency, and employee development to drive 5-7% projected growth.",
+    challenge: "Starbucks faced declining brand relevance, operational inefficiencies causing long wait times, and rising employee dissatisfaction.",
+    solution: "Proposed a holistic strategy: reimagined 'third place' café experience, Siren Craft System for efficiency, and relaunched Coffee Master Program for employee retention.",
+    fullDescription: `Developed a comprehensive product strategy proposal for Starbucks to address declining brand relevance and drive 5-7% projected growth. The strategy focused on three key pillars: Café Experience Revitalization, Operational Efficiency, and Employee Development.
+
+Key Initiatives:
+• Café Experience Revitalization: Reimagined the in-store "third place" with comfortable seating, community events, and improved ambience to boost customer satisfaction and loyalty.
+• Operational Efficiency: Proposed menu simplification and the rollout of the Siren Craft System to reduce wait times and streamline operations.
+• Premiumization: Recommended launching limited-edition, ethically sourced coffee lines and enhanced personalization through digital channels.
+• Employee Development: Relaunched the Coffee Master Program and established clear career progression paths to increase employee engagement and retention.
+
+Expected Outcomes:
+• Projected 5-7% comparable sales growth by FY2026
+• 30% reduction in average wait times
+• 25% increase in employee satisfaction and 20% reduction in turnover
+• Strengthened brand differentiation in a competitive market`,
+    metrics: [
+      { value: "5-7%", label: "Proj. Growth" },
+      { value: "30%", label: "Wait Time Reduction" },
+      { value: "25%", label: "Employee Sat. Lift" },
+    ],
+    tags: ["Product Strategy", "Competitive Analysis", "ROI Estimation", "Roadmap Creation", "Stakeholder Comm."],
+    technologies: ["Market Analysis", "Strategic OKRs", "Budget Allocation", "Cross-functional Planning"],
+    media: [
+      {
+        type: "pdf",
+        url: starbucksPdf,
+        title: "Strategy Proposal",
+      },
+    ],
+  },
+  {
+    id: "smart-graphics",
+    title: "Design of a Smart Graphics System",
+    role: "Researcher & Engineer",
+    company: "IIEST, Shibpur",
+    year: "2021",
+    duration: "Aug 2020 - May 2021",
+    image: smartGraphicsImg,
+    description: "Engineered a connected framework of intelligent pixels that facilitated data transfer among units, minimizing processing time for graphical tasks.",
+    challenge: "Traditional graphical processing often involves redundant data fetching and processing bottlenecks when handling complex pixel interactions.",
+    solution: "Designed a system where every pixel serves as its own unit (256x256 grid) that feeds data to the next pixel as required, creating a distributed intelligent network.",
+    fullDescription: `Engineered a connected framework of pixels that facilitated data transfer among units, enhancing the overall performance of graphical tasks by minimizing processing time across 256x256 individual pixels in the display. 
+
+In this novel approach, every pixel serves to be its own unit that feeds data to the next pixel as required, making it intelligent. This distributed processing model allows for more efficient rendering of complex graphical patterns and reduces the load on the central processor.`,
+    metrics: [
+      { value: "256x256", label: "Pixel Grid" },
+      { value: "High", label: "Processing Speed" },
+      { value: "R&D", label: "Novel Framework" },
+    ],
+    tags: ["Embedded Systems", "Graphics Processing", "Research", "Algorithm Design"],
+    technologies: ["C++", "Verilog", "FPGA", "Digital Logic Design"],
+    github: "https://github.com/iridescent-anupam/Design-of-a-Smart-Graphics-System",
+    media: [],
+  },
+  {
+    id: "intelligent-embedded",
+    title: "Intelligent Embedded Design",
+    role: "Embedded Systems Engineer",
+    company: "IIEST, Shibpur",
+    year: "2019",
+    duration: "Sep 2019 - Dec 2019",
+    image: parkingSystemImg,
+    description: "Designed an intelligent parking system using ARM Cortex-M microcontroller with ultrasonic sensors, gyroscope, and camera integration achieving 70% precision.",
+    challenge: "Developing a precise and efficient parking assistance system using low-level embedded hardware and real-time operating systems.",
+    solution: "Utilized ARM Cortex-M4 microcontroller with Keil RTX RTOS to integrate ultrasonic sensors (HCSR04), gyroscope, and camera data for real-time distance sensing.",
+    fullDescription: `The objective was to understand the working of an Intelligent embedded system such as an ARM and KEIL based microcontroller MCBSTM32F400 using Keil MDK-ARM™ which features the industry standard ARM compiler, the μVision®5 IDE, analysis tools, and the fully functional Keil RTX RTOS.
+
+Using this microcontroller, I designed an intelligent parking system that uses two ultrasonic sensors (HCSR04) to sense the distance between the car and objects nearby for efficient parking. It also leveraged a gyroscope and camera to achieve 70% precision in object detection and distance estimation.`,
+    metrics: [
+      { value: "70%", label: "Precision" },
+      { value: "RTOS", label: "Real-time OS" },
+      { value: "ARM", label: "Architecture" },
+    ],
+    tags: ["Embedded Systems", "ARM Cortex-M", "Robotics", "Sensors"],
+    technologies: ["Keil MDK", "C", "ARM Cortex-M4", "RTOS", "Ultrasonic Sensors"],
+    github: "https://github.com/iridescent-anupam/Intelligent-Embedded-System-Design-under-KEIL-and-Arm-environment-",
+    media: [],
+  },
+  {
+    id: "social-network-analysis",
+    title: "Social Network Analysis",
+    role: "Data Researcher",
+    company: "IIEST, Shibpur",
+    year: "2019",
+    duration: "May 2019 - Jun 2019",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+    description: "Studied data propagation using Graph Theory and Python on real-life datasets from Facebook, Epinions, and Avogato.",
+    challenge: "Understanding how information and influence propagate through complex social networks using large-scale datasets.",
+    solution: "Applied Graph Theory algorithms using Python (NetworkX, Pandas) to analyze connectivity, centrality, and propagation patterns in social graphs.",
+    fullDescription: `Using the knowledge of Graph Theory and Python along with its libraries such as NetworkX, Numpy, Pandas, etc., we studied Data Propagation using real life data sets from Facebook, Epinions, Avogato, etc.
+
+The research focused on identifying key influencers, analyzing community structure, and modeling how information spreads through these networks. This involved processing large datasets to visualize and quantify social connections.`,
+    metrics: [
+      { value: "3+", label: "Datasets Analyzed" },
+      { value: "Graph", label: "Theory Applied" },
+      { value: "Data", label: "Propagation Study" },
+    ],
+    tags: ["Data Science", "Graph Theory", "Python", "Network Analysis"],
+    technologies: ["Python", "NetworkX", "Pandas", "NumPy", "Matplotlib"],
+    github: "https://github.com/iridescent-anupam/Social-Network-Analysis",
+    media: [],
   },
 ];
 

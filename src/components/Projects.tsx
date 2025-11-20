@@ -215,7 +215,7 @@ export function Projects() {
                           Code
                         </a>
                       )}
-                      {project.liveUrl && (
+                      {project.liveUrl && project.id !== 'pinterest-strategy' && project.id !== 'duolingo-green-owls' && (
                         <a
                           href={project.liveUrl}
                           target="_blank"
@@ -233,36 +233,6 @@ export function Projects() {
             );
           })}
         </motion.div>
-
-        {/* Fun CTA */}
-        <div className="mt-16 text-center">
-          <div className="inline-block p-[3px] gradient-blade-runner rounded-3xl transform -rotate-1 hover:rotate-0 transition-transform shadow-xl glow-cyan">
-            <div
-              className="rounded-3xl p-8 bg-[#131721]"
-            >
-              <div className="text-5xl mb-4">🎯</div>
-              <div
-                className="font-display font-bold text-2xl mb-2 text-[#00F0FF]"
-              >
-                Want to see more?
-              </div>
-              <p className="text-gray-300 mb-6 font-body">
-                Check out my GitHub for additional projects and
-                experiments
-              </p>
-              <a
-                href="https://github.com/iridescent-anupam"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 gradient-dune rounded-full font-accent font-bold hover:glow-orange transition-all tracking-wider text-[#0A0E1A]"
-              >
-                <Github className="w-5 h-5" />
-                VISIT GITHUB
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Project Modal */}
