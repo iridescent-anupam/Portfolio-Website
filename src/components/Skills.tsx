@@ -1,12 +1,10 @@
 import {
   Code2,
   Palette,
-  TrendingUp,
   Users,
-  Zap,
   Brain,
-  MessageSquare,
-  Database,
+  Cloud,
+  Server,
 } from "lucide-react";
 import { skills } from "../data/content";
 
@@ -14,23 +12,23 @@ export function Skills() {
   const categoryIcons: Record<string, any> = {
     "Product Management": Brain,
     "Technical Skills": Code2,
-    "Design & UX": Palette,
-    "Business & Strategy": TrendingUp,
-    "Collaboration & Tools": Users,
+    "Cloud & DevOps": Cloud,
+    "Platform & Enterprise": Server,
+    "Design & Tools": Palette,
   };
 
   const categoryColors: Record<string, string> = {
     "Product Management": "from-purple-400 to-pink-500",
     "Technical Skills": "from-blue-400 to-cyan-500",
-    "Design & UX": "from-yellow-400 to-orange-500",
-    "Business & Strategy": "from-green-400 to-emerald-500",
-    "Collaboration & Tools": "from-red-400 to-pink-500",
+    "Cloud & DevOps": "from-cyan-400 to-blue-500",
+    "Platform & Enterprise": "from-indigo-400 to-purple-500",
+    "Design & Tools": "from-pink-400 to-rose-500",
   };
 
   return (
     <section
       id="skills"
-      className="py-20 px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
+      className="py-16 px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
     >
       {/* Creative Divider */}
       <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-green-500 via-blue-500 to-purple-500"></div>
@@ -41,21 +39,21 @@ export function Skills() {
 
       <div className="max-w-7xl mx-auto relative">
         {/* Creative Header */}
-        <div className="text-center mb-16 relative">
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-7xl opacity-5">
+        <div className="text-center mb-10 relative">
+          <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-5xl opacity-5">
             🛠️
           </div>
 
-          <div className="inline-flex items-center gap-3 mb-6">
-            <div className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-bold transform rotate-1 shadow-lg">
+          <div className="inline-flex items-center gap-3 mb-4">
+            <div className="px-5 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-bold transform rotate-1 shadow-lg text-sm">
               🎨 MY TOOLKIT
             </div>
-            <div className="px-4 py-2 bg-yellow-400 text-gray-900 rounded-full font-bold text-sm transform -rotate-2">
+            <div className="px-3 py-1.5 bg-yellow-400 text-gray-900 rounded-full font-bold text-xs transform -rotate-2">
               50+ Skills
             </div>
           </div>
 
-          <h2 className="text-gray-900 mb-4 relative inline-block">
+          <h2 className="text-gray-900 mb-3 relative inline-block text-3xl md:text-4xl font-bold">
             Full-stack{" "}
             <span className="relative">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
@@ -65,19 +63,19 @@ export function Skills() {
             </span>
           </h2>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             From strategy to code, I bridge business and
             technology 🌉
           </p>
         </div>
 
         {/* Bento Grid Skills */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {skills.map((skillCategory, categoryIndex) => {
             const category = skillCategory.category;
             const skillList = skillCategory.skills;
-            const Icon = categoryIcons[category];
-            const colorGradient = categoryColors[category];
+            const Icon = categoryIcons[category] || Users;
+            const colorGradient = categoryColors[category] || "from-gray-400 to-gray-500";
 
             // Make first card larger
             const isLarge = categoryIndex === 0;
@@ -85,26 +83,26 @@ export function Skills() {
             return (
               <div
                 key={category}
-                className={`group ${isLarge ? "lg:col-span-2 lg:row-span-1" : ""}`}
+                className={`group ${isLarge ? "lg:col-span-2 lg:row-span-1" : ""} `}
               >
                 <div
                   className={`h-full bg-gradient-to-br ${colorGradient} rounded-3xl p-1 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 hover:rotate-1`}
                 >
-                  <div className="h-full bg-white rounded-[22px] p-8">
+                  <div className="h-full bg-white rounded-[22px] p-6">
                     {/* Category Header */}
-                    <div className="flex items-center gap-4 mb-6">
+                    <div className="flex items-center gap-4 mb-4">
                       <div
-                        className={`w-14 h-14 bg-gradient-to-br ${colorGradient} rounded-2xl flex items-center justify-center transform -rotate-6 group-hover:rotate-0 transition-transform shadow-lg`}
+                        className={`w-12 h-12 bg-gradient-to-br ${colorGradient} rounded-2xl flex items-center justify-center transform -rotate-6 group-hover:rotate-0 transition-transform shadow-lg`}
                       >
                         {Icon && (
-                          <Icon className="w-7 h-7 text-white" />
+                          <Icon className="w-6 h-6 text-white" />
                         )}
                       </div>
                       <div>
-                        <h3 className="text-gray-900">
+                        <h3 className="text-gray-900 font-bold text-lg">
                           {category}
                         </h3>
-                        <div className="text-sm text-gray-500 font-medium">
+                        <div className="text-xs text-gray-500 font-medium">
                           {skillList.length} skills
                         </div>
                       </div>
@@ -112,13 +110,13 @@ export function Skills() {
 
                     {/* Skills Pills */}
                     <div
-                      className={`flex flex-wrap gap-2 ${isLarge ? "gap-3" : ""}`}
+                      className={`flex flex-wrap gap-2 ${isLarge ? "gap-2" : ""} `}
                     >
                       {skillList.map((skill) => (
                         <div
                           key={skill}
-                          className={`group/skill px-4 py-2 bg-gray-50 hover:bg-gray-900 text-gray-700 hover:text-white rounded-xl transition-all transform hover:scale-105 cursor-default ${isLarge ? "text-base" : "text-sm"
-                            }`}
+                          className={`group/skill px-3 py-1.5 bg-gray-50 hover:bg-gray-900 text-gray-700 hover:text-white rounded-lg transition-all transform hover:scale-105 cursor-default ${isLarge ? "text-sm" : "text-xs"
+                            } `}
                         >
                           <span className="font-medium">
                             {skill}

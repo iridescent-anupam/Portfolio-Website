@@ -48,7 +48,7 @@ export function Projects() {
             <div
               className="absolute -top-2 -right-2 w-8 h-8 gradient-spice rounded-full flex items-center justify-center text-xs font-bold glow-orange text-white"
             >
-              4
+              {projects.length}
             </div>
           </div>
 
@@ -85,8 +85,6 @@ export function Projects() {
           {projects.map((project, index) => {
             // Create varied layouts
             const isFeatured = index === 0;
-            const isWide = index === 1 || index === 4;
-            const isTall = index === 2;
 
             return (
               <motion.div
@@ -96,9 +94,9 @@ export function Projects() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
                 className={`group relative cursor-pointer ${isFeatured
-                  ? "md:col-span-2 md:row-span-2"
-                  : ""
-                  } ${isWide ? "md:col-span-2" : ""} ${isTall ? "md:row-span-2" : ""}`}
+                  ? "md:col-span-2 md:row-span-1"
+                  : "md:col-span-1 md:row-span-1"
+                  }`}
                 onClick={() => handleProjectClick(project)}
               >
                 <div

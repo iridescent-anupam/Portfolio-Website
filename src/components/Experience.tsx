@@ -1,21 +1,33 @@
 import {
-  Briefcase,
   Calendar,
   MapPin,
   CheckCircle2,
   Award,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { experience, personalInfo } from "../data/content";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { useState } from "react";
 
 export function Experience() {
+  const [expandedIds, setExpandedIds] = useState<string[]>([]);
+
+  const toggleExpand = (id: string) => {
+    setExpandedIds((prev) =>
+      prev.includes(id)
+        ? prev.filter((item) => item !== id)
+        : [...prev, id]
+    );
+  };
+
   return (
     <section
       id="experience"
       className="py-20 px-6 lg:px-8 relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-4xl mx-auto relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,50 +50,30 @@ export function Experience() {
           </p>
         </motion.div>
 
-        {/* Experience Timeline */}
-        <div className="relative max-w-5xl mx-auto">
-          {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500/50 via-purple-500/50 to-transparent hidden md:block"></div>
+        {/* Experience Timeline - Single Column */}
+        <div className="space-y-8">
+          {experience.map((exp, index) => {
+            const isExpanded = expandedIds.includes(exp.id);
+            const visibleAchievements = isExpanded
+              ? exp.achievements
+              : exp.achievements.slice(0, 3);
 
-          <div className="space-y-16">
-            {experience.map((exp, index) => (
+            return (
               <motion.div
                 key={exp.id}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`relative grid md:grid-cols-2 gap-8 md:gap-12 ${index % 2 === 1 ? "md:grid-flow-dense" : ""
-                  }`}
+                className="relative"
               >
-                {/* Timeline Dot */}
-                <div className="absolute left-8 md:left-1/2 top-8 w-6 h-6 bg-[#050810] rounded-full border-2 border-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.5)] -translate-x-1/2 z-10 hidden md:block"></div>
+                {/* Card with Prominent Border */}
+                <div className="glass-card rounded-3xl p-6 md:p-8 border-2 border-white/20 hover:border-cyan-500/50 transition-all group relative overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-cyan-500/10">
+                  {/* Background Gradient */}
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
-                {/* Company Logo */}
-                <div
-                  className={`${index % 2 === 1 ? "md:col-start-2 md:text-left" : "md:text-right"}`}
-                >
-                  <div
-                    className={`inline-block glass-panel rounded-2xl p-6 ${index % 2 === 1 ? "" : "md:ml-auto"
-                      }`}
-                  >
-                    <div className="w-32 h-32 bg-white/5 rounded-xl p-2">
-                      <ImageWithFallback
-                        src={exp.logo}
-                        alt={exp.company}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div
-                  className={`${index % 2 === 1 ? "md:col-start-1" : ""}`}
-                >
-                  <div className="glass-card rounded-3xl p-8 hover:border-cyan-500/30 transition-all group">
-                    {/* Header */}
-                    <div className="mb-6">
+                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6 relative z-10">
+                    <div className="flex-1">
                       <h3 className="text-2xl font-display font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
                         {exp.role}
                       </h3>
@@ -89,52 +81,86 @@ export function Experience() {
                         {exp.company}
                       </div>
                       <div className="flex flex-wrap gap-4 text-sm text-gray-400">
-                        <div className="flex items-center gap-1">
+                        <div className="flex items-center gap-1.5">
                           <MapPin className="w-4 h-4 text-cyan-500" />
                           <span>{exp.location}</span>
                         </div>
-                        <div className="flex items-center gap-1">
+                        <div className="flex items-center gap-1.5">
                           <Calendar className="w-4 h-4 text-purple-500" />
                           <span>{exp.period}</span>
                         </div>
                       </div>
                     </div>
 
-                    {/* Description */}
-                    <p className="text-gray-300 leading-relaxed mb-6 font-body">
-                      {exp.description}
-                    </p>
+                    {/* Logo Integrated in Card */}
+                    <div
+                      style={{ width: '100px', height: '100px', minWidth: '200px', minHeight: '120px' }}
+                      className="bg-white/5 rounded-2xl p-2 flex-shrink-0 border border-white/10 backdrop-blur-sm"
+                    >
+                      <ImageWithFallback
+                        src={exp.logo}
+                        alt={exp.company}
+                        className="w-full h-full object-contain"
+                        style={{ width: '100%', height: '100%' }}
+                      />
+                    </div>
+                  </div>
 
-                    {/* Key Achievements */}
+                  {/* Description */}
+                  <p className="text-gray-300 leading-relaxed mb-6 font-body text-sm md:text-base border-l-2 border-cyan-500/30 pl-4">
+                    {exp.description}
+                  </p>
+
+                  {/* Key Achievements */}
+                  <div className="space-y-3">
+                    <div className="text-xs font-bold text-cyan-500 uppercase tracking-widest flex items-center gap-2">
+                      <Award className="w-4 h-4" />
+                      Key Achievements
+                    </div>
+
                     <div className="space-y-3">
-                      <div className="text-xs font-bold text-cyan-500 uppercase tracking-widest">
-                        Key Achievements
-                      </div>
-                      {exp.achievements
-                        .slice(0, 5)
-                        .map((achievement, idx) => (
-                          <div
-                            key={idx}
+                      <AnimatePresence initial={false} mode="wait">
+                        {visibleAchievements.map((achievement, idx) => (
+                          <motion.div
+                            key={`${exp.id}-achievement-${idx}`}
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
                             className="flex items-start gap-3"
                           >
                             <CheckCircle2 className="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" />
                             <p className="text-sm text-gray-400 leading-relaxed">
                               {achievement}
                             </p>
-                          </div>
+                          </motion.div>
                         ))}
-                      {exp.achievements.length > 5 && (
-                        <div className="text-sm text-gray-500 italic">
-                          +{exp.achievements.length - 5} more
-                          achievements
-                        </div>
-                      )}
+                      </AnimatePresence>
                     </div>
+
+                    {/* Expand/Collapse Button */}
+                    {exp.achievements.length > 3 && (
+                      <button
+                        onClick={() => toggleExpand(exp.id)}
+                        className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors mt-2 group/btn"
+                      >
+                        {isExpanded ? (
+                          <>
+                            Show Less <ChevronUp className="w-4 h-4" />
+                          </>
+                        ) : (
+                          <>
+                            Show {exp.achievements.length - 3} More Achievements{" "}
+                            <ChevronDown className="w-4 h-4 group-hover/btn:translate-y-0.5 transition-transform" />
+                          </>
+                        )}
+                      </button>
+                    )}
                   </div>
                 </div>
               </motion.div>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
         {/* Bottom CTA */}

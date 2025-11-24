@@ -11,7 +11,7 @@ const personalInfo = {
   resume: "/path-to-your-resume.pdf" // TODO: Update with your resume link
 };
 
-const techStack = ["Product Strategy", "Azure DevOps", "Agile/SCRUM", "Dynamics 365", "Data-Driven PM"];
+const techStack = ["Product Management & Strategy", "Digital Transformation", "Agile/SAFe® Delivery", "Cross-Functional Leadership", "Data-Driven Growth"];
 
 export function Hero() {
   return (

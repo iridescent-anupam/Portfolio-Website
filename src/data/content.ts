@@ -571,6 +571,7 @@ export const skills = [
       "Product Analytics",
       "Market Research",
       "Product Prototyping",
+      "Backlog Prioritization"
     ],
   },
   {
@@ -582,9 +583,7 @@ export const skills = [
       "C/C++",
       "C#",
       "SQL",
-      "MySQL",
       "ReactJS",
-      "Next.js",
       ".NET",
       "HTML/CSS",
       "Bootstrap",
@@ -602,14 +601,12 @@ export const skills = [
     ],
   },
   {
-    category: "Enterprise Systems",
+    category: "Platform & Enterprise",
     skills: [
       "Microsoft Dynamics 365 CRM",
-      "SAP Integration",
       "ServiceNow",
       "Power Automate",
       "Power Apps",
-      "AI Builder",
       "SaaS",
     ],
   },
@@ -619,23 +616,10 @@ export const skills = [
       "Figma",
       "Canva",
       "FluentUI",
-      "Tailwind CSS",
-      "shadcn/UI",
       "RESTful APIs",
       "Postman",
       "Git",
       "Jira",
-    ],
-  },
-  {
-    category: "Methodologies",
-    skills: [
-      "SAFe® Agile",
-      "Scrum",
-      "Sprint Planning",
-      "Backlog Management",
-      "User Stories",
-      "Buy vs Build Analysis",
     ],
   },
 ];
