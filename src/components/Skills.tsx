@@ -17,10 +17,10 @@ export function Skills() {
     "Design & Tools": Palette,
   };
 
-  const categoryColors: Record<string, string> = {
+  const categoryAccents: Record<string, string> = {
     "Product Management": "from-purple-400 to-pink-500",
-    "Technical Skills": "from-blue-400 to-cyan-500",
-    "Cloud & DevOps": "from-cyan-400 to-blue-500",
+    "Technical Skills": "from-cyan-400 to-blue-500",
+    "Cloud & DevOps": "from-cyan-400 to-teal-500",
     "Platform & Enterprise": "from-indigo-400 to-purple-500",
     "Design & Tools": "from-pink-400 to-rose-500",
   };
@@ -28,44 +28,40 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className="py-16 px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"
+      className="py-16 px-6 lg:px-8 relative overflow-hidden"
     >
-      {/* Creative Divider */}
-      <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-green-500 via-blue-500 to-purple-500"></div>
+      {/* Glass divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent"></div>
 
-      {/* Background Decoration */}
-      <div className="absolute top-20 right-10 w-72 h-72 bg-yellow-400/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-pink-400/10 rounded-full blur-3xl"></div>
+      {/* Background glow */}
+      <div className="absolute top-20 right-10 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto relative">
-        {/* Creative Header */}
+        {/* Header */}
         <div className="text-center mb-10 relative">
-          <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-5xl opacity-5">
-            🛠️
-          </div>
-
           <div className="inline-flex items-center gap-3 mb-4">
-            <div className="px-5 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-bold transform rotate-1 shadow-lg text-sm">
-              🎨 MY TOOLKIT
+            <div className="px-5 py-2 glass-accent rounded-full font-bold text-sm text-cyan-400 tracking-widest uppercase">
+              MY TOOLKIT
             </div>
-            <div className="px-3 py-1.5 bg-yellow-400 text-gray-900 rounded-full font-bold text-xs transform -rotate-2">
+            <div className="px-3 py-1.5 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full font-bold text-xs">
               50+ Skills
             </div>
           </div>
 
-          <h2 className="text-gray-900 mb-3 relative inline-block text-3xl md:text-4xl font-bold">
+          <h2 className="text-white mb-3 relative inline-block text-3xl md:text-4xl font-bold">
             Full-stack{" "}
             <span className="relative">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
                 product toolkit
               </span>
-              <div className="absolute -bottom-2 left-0 right-0 h-3 bg-yellow-400/30 transform -rotate-1"></div>
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full opacity-30"></div>
             </span>
           </h2>
 
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             From strategy to code, I bridge business and
-            technology 🌉
+            technology
           </p>
         </div>
 
@@ -75,31 +71,30 @@ export function Skills() {
             const category = skillCategory.category;
             const skillList = skillCategory.skills;
             const Icon = categoryIcons[category] || Users;
-            const colorGradient = categoryColors[category] || "from-gray-400 to-gray-500";
+            const accentGradient = categoryAccents[category] || "from-gray-400 to-gray-500";
 
-            // Make first card larger
             const isLarge = categoryIndex === 0;
 
             return (
               <div
                 key={category}
-                className={`group ${isLarge ? "lg:col-span-2 lg:row-span-1" : ""} `}
+                className={`group ${isLarge ? "lg:col-span-2 lg:row-span-1" : ""}`}
               >
                 <div
-                  className={`h-full bg-gradient-to-br ${colorGradient} rounded-3xl p-1 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 hover:rotate-1`}
+                  className="h-full rounded-3xl p-[1px] shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 bg-gradient-to-br from-white/10 to-white/5 hover:from-white/15 hover:to-white/10"
                 >
-                  <div className="h-full bg-white rounded-[22px] p-6">
+                  <div className="h-full glass-card-dark rounded-[22px] p-6">
                     {/* Category Header */}
                     <div className="flex items-center gap-4 mb-4">
                       <div
-                        className={`w-12 h-12 bg-gradient-to-br ${colorGradient} rounded-2xl flex items-center justify-center transform -rotate-6 group-hover:rotate-0 transition-transform shadow-lg`}
+                        className={`w-12 h-12 bg-gradient-to-br ${accentGradient} rounded-2xl flex items-center justify-center transform -rotate-6 group-hover:rotate-0 transition-transform shadow-lg`}
                       >
                         {Icon && (
                           <Icon className="w-6 h-6 text-white" />
                         )}
                       </div>
                       <div>
-                        <h3 className="text-gray-900 font-bold text-lg">
+                        <h3 className="text-white font-bold text-lg">
                           {category}
                         </h3>
                         <div className="text-xs text-gray-500 font-medium">
@@ -109,14 +104,12 @@ export function Skills() {
                     </div>
 
                     {/* Skills Pills */}
-                    <div
-                      className={`flex flex-wrap gap-2 ${isLarge ? "gap-2" : ""} `}
-                    >
+                    <div className="flex flex-wrap gap-2">
                       {skillList.map((skill) => (
                         <div
                           key={skill}
-                          className={`group/skill px-3 py-1.5 bg-gray-50 hover:bg-gray-900 text-gray-700 hover:text-white rounded-lg transition-all transform hover:scale-105 cursor-default ${isLarge ? "text-sm" : "text-xs"
-                            } `}
+                          className={`group/skill px-3 py-1.5 glass-subtle hover:glass-accent text-gray-300 hover:text-cyan-300 rounded-lg transition-all cursor-default ${isLarge ? "text-sm" : "text-xs"
+                            }`}
                         >
                           <span className="font-medium">
                             {skill}

@@ -1,15 +1,18 @@
 import { Navigation } from "./components/Navigation";
 import { motion } from "framer-motion";
-import { Hero } from "./components/Hero";
-import { About } from "./components/About";
+import { ScrollExpandHero } from "./components/ScrollExpandHero";
+import { HeroContent } from "./components/HeroContent";
 import { Projects } from "./components/Projects";
 import { Experience } from "./components/Experience";
 import { Skills } from "./components/Skills";
+import { About } from "./components/About";
 import { Education } from "./components/Education";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { ScrollProgress } from "./components/ScrollProgress";
 import { BackToTop } from "./components/BackToTop";
+import heroBg from "./assets/hero-bg.png";
+import heroLandscape from "./assets/hero-landscape-bg.png";
 
 export default function App() {
   return (
@@ -17,53 +20,47 @@ export default function App() {
       {/* Deep space background layers */}
       <div className="fixed inset-0 -z-50">
         {/* Base gradient */}
-        <div className="absolute inset-0 gradient-void"></div>
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 30%, #0d1225 0%, #050810 70%)' }}></div>
 
-        {/* Atmospheric image overlays */}
-        <div
-          className="absolute inset-0 opacity-5 mix-blend-lighten"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1762279388952-85187155e48d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwdGVjaG5vbG9neSUyMGFic3RyYWN0fGVufDF8fHx8MTc2MzM2NzczM3ww&ixlib=rb-4.1.0&q=80&w=1080)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
-          }}
-        ></div>
-
-        {/* Neon light overlay */}
-        <div
-          className="absolute inset-0 opacity-3 mix-blend-screen"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1618902345120-77758161d808?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuZW9uJTIwbGlnaHRzJTIwY3liZXJwdW5rfGVufDF8fHx8MTc2MzM4MzUxMnww&ixlib=rb-4.1.0&q=80&w=1080)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center top',
-            backgroundAttachment: 'fixed'
-          }}
-        ></div>
+        {/* Subtle animated glow orbs */}
+        <div className="absolute top-1/4 left-1/4 w-[800px] h-[800px] bg-cyan-500/3 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple-500/3 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s' }}></div>
 
         {/* Noise texture */}
         <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,240,255,0.03) 2px, rgba(0,240,255,0.03) 4px)',
+          backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,240,255,0.02) 2px, rgba(0,240,255,0.02) 4px)',
         }}></div>
       </div>
 
       <Navigation />
-      <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
+
+      {/* Scroll Expansion Hero */}
+      <ScrollExpandHero
+        mediaSrc={heroBg}
+        bgImageSrc={heroLandscape}
+        title="Anupam Sanidhya"
+        subtitle="Technical Product Manager"
+        scrollHint="Scroll to explore"
       >
-        <Hero />
-        <Projects />
-        <Experience />
-        <Skills />
-        <About />
-        <Education />
-        <Contact />
-      </motion.main>
+        {/* All content revealed after expansion */}
+        <motion.main
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <HeroContent />
+          <Projects />
+          <Experience />
+          <Skills />
+          <About />
+          <Education />
+          <Contact />
+        </motion.main>
+        <Footer />
+      </ScrollExpandHero>
+
       <ScrollProgress />
       <BackToTop />
-      <Footer />
     </div>
   );
 }

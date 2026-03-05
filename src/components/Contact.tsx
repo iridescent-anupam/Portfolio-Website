@@ -16,45 +16,39 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
-      {/* Creative Divider */}
-      <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500"></div>
-      
-      {/* Animated Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-yellow-400 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-pink-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-      </div>
+    <section id="contact" className="py-20 px-6 lg:px-8 relative overflow-hidden">
+      {/* Glass divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-pink-500/20 to-transparent"></div>
 
-      {/* Decorative elements */}
-      <div className="absolute top-10 right-10 text-8xl opacity-5">📬</div>
-      <div className="absolute bottom-10 left-10 text-8xl opacity-5">💬</div>
-      
+      {/* Background glow */}
+      <div className="absolute top-20 left-20 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl"></div>
+
       <div className="max-w-7xl mx-auto relative">
-        {/* Creative Header */}
+        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-6">
-            <div className="px-6 py-3 bg-yellow-400 text-gray-900 rounded-full font-bold transform -rotate-2 shadow-lg">
-              📧 LET'S CONNECT
+            <div className="px-6 py-3 glass-accent-warm rounded-full font-bold text-orange-300 tracking-widest uppercase text-sm">
+              LET'S CONNECT
             </div>
-            <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full flex items-center justify-center animate-bounce">
-              <Coffee className="w-6 h-6" />
+            <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full flex items-center justify-center">
+              <Coffee className="w-6 h-6 text-white" />
             </div>
           </div>
-          
-          <h2 className="text-white mb-6">
+
+          <h2 className="text-white mb-6 text-3xl md:text-5xl font-bold font-display">
             Let's create something{" "}
             <span className="relative inline-block">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-400">
                 amazing
               </span>
-              <div className="absolute -bottom-2 left-0 right-0 h-3 bg-yellow-400/30 transform rotate-1"></div>
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 to-pink-500 rounded-full opacity-30"></div>
             </span>
             {" "}together
           </h2>
-          
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Got an exciting project or just want to chat? Drop me a message! ☕
+
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            Got an exciting project or just want to chat? Drop me a message!
           </p>
         </div>
 
@@ -63,21 +57,19 @@ export function Contact() {
           <div className="space-y-6">
             {/* Email Card */}
             <div className="group">
-              <div className="h-full bg-gradient-to-br from-yellow-400 to-orange-500 rounded-3xl p-1 shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                <div className="h-full bg-gray-900 rounded-[22px] p-8">
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 bg-yellow-400 rounded-2xl flex items-center justify-center transform -rotate-6 group-hover:rotate-0 transition-transform">
-                      <Mail className="w-7 h-7 text-gray-900" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="font-display font-bold text-lg text-white mb-1">Email Me</div>
-                      <a
-                        href={`mailto:${personalInfo.email}`}
-                        className="text-yellow-400 hover:text-yellow-300 transition-colors break-all"
-                      >
-                        {personalInfo.email}
-                      </a>
-                    </div>
+              <div className="glass-card-dark rounded-3xl p-8 hover:border-orange-500/30 transition-all transform hover:-translate-y-1">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 bg-gradient-to-br from-orange-400 to-yellow-500 rounded-2xl flex items-center justify-center transform -rotate-6 group-hover:rotate-0 transition-transform">
+                    <Mail className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-display font-bold text-lg text-white mb-1">Email Me</div>
+                    <a
+                      href={`mailto:${personalInfo.email}`}
+                      className="text-orange-300 hover:text-orange-200 transition-colors break-all"
+                    >
+                      {personalInfo.email}
+                    </a>
                   </div>
                 </div>
               </div>
@@ -85,16 +77,14 @@ export function Contact() {
 
             {/* Location Card */}
             <div className="group">
-              <div className="h-full bg-gradient-to-br from-blue-400 to-cyan-500 rounded-3xl p-1 shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                <div className="h-full bg-gray-900 rounded-[22px] p-8">
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 bg-blue-400 rounded-2xl flex items-center justify-center transform -rotate-6 group-hover:rotate-0 transition-transform">
-                      <MapPin className="w-7 h-7 text-gray-900" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="font-display font-bold text-lg text-white mb-1">Based in</div>
-                      <div className="text-blue-300">{personalInfo.location}</div>
-                    </div>
+              <div className="glass-card-dark rounded-3xl p-8 hover:border-cyan-500/30 transition-all transform hover:-translate-y-1">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center transform -rotate-6 group-hover:rotate-0 transition-transform">
+                    <MapPin className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-display font-bold text-lg text-white mb-1">Based in</div>
+                    <div className="text-cyan-300">{personalInfo.location}</div>
                   </div>
                 </div>
               </div>
@@ -102,38 +92,38 @@ export function Contact() {
 
             {/* Social Links */}
             <div className="group">
-              <div className="h-full bg-gradient-to-br from-pink-400 to-purple-500 rounded-3xl p-1 shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                <div className="h-full bg-gray-900 rounded-[22px] p-8">
-                  <div className="font-display font-bold text-lg text-white mb-4">Connect on Social</div>
-                  <div className="flex gap-4">
-                    <a
-                      href={personalInfo.social.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-500 rounded-xl transition-all transform hover:scale-105"
-                    >
-                      <Linkedin className="w-5 h-5" />
-                      <span className="font-medium">LinkedIn</span>
-                    </a>
-                    <a
-                      href={personalInfo.social.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gray-700 hover:bg-gray-600 rounded-xl transition-all transform hover:scale-105"
-                    >
-                      <Github className="w-5 h-5" />
-                      <span className="font-medium">GitHub</span>
-                    </a>
-                  </div>
+              <div className="glass-card-dark rounded-3xl p-8 hover:border-purple-500/30 transition-all">
+                <div className="font-display font-bold text-lg text-white mb-4">Connect on Social</div>
+                <div className="flex gap-4">
+                  <a
+                    href={personalInfo.social.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-blue-600/20 hover:bg-blue-600/40 border border-blue-500/30 rounded-xl transition-all cursor-pointer text-white"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                    <span className="font-medium">LinkedIn</span>
+                  </a>
+                  <a
+                    href={personalInfo.social.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 glass-subtle hover:bg-white/10 rounded-xl transition-all cursor-pointer text-white"
+                  >
+                    <Github className="w-5 h-5" />
+                    <span className="font-medium">GitHub</span>
+                  </a>
                 </div>
               </div>
             </div>
 
-            {/* Fun fact */}
-            <div className="bg-gradient-to-br from-green-400 to-emerald-500 rounded-3xl p-8 text-gray-900 transform -rotate-1">
-              <div className="text-4xl mb-3">☕</div>
-              <div className="font-display font-bold text-lg mb-2">Coffee Chat?</div>
-              <p className="text-sm">
+            {/* Coffee chat card */}
+            <div className="glass-accent rounded-3xl p-8">
+              <div className="flex items-center gap-3 mb-2">
+                <Coffee className="w-8 h-8 text-cyan-400" />
+                <div className="font-display font-bold text-lg text-white">Coffee Chat?</div>
+              </div>
+              <p className="text-sm text-gray-300">
                 I'm always up for a coffee chat about product management, tech, or literally anything interesting!
               </p>
             </div>
@@ -141,17 +131,19 @@ export function Contact() {
 
           {/* Right: Contact Form */}
           <div className="group">
-            <div className="h-full bg-gradient-to-br from-yellow-400 via-orange-500 to-pink-500 rounded-3xl p-1 shadow-2xl">
-              <div className="h-full bg-white rounded-[22px] p-8">
+            <div className="h-full rounded-3xl p-[1px] bg-gradient-to-br from-orange-500/20 via-pink-500/20 to-purple-500/20 hover:from-orange-500/30 hover:via-pink-500/30 hover:to-purple-500/30 transition-all">
+              <div className="h-full glass-card-dark rounded-[22px] p-8">
                 <div className="mb-6">
-                  <div className="text-4xl mb-3">✉️</div>
-                  <h3 className="text-gray-900 mb-2">Send a Message</h3>
-                  <p className="text-gray-600">Fill out the form and I'll get back to you ASAP!</p>
+                  <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-pink-500 rounded-xl flex items-center justify-center mb-3">
+                    <Send className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-white text-xl font-bold mb-2">Send a Message</h3>
+                  <p className="text-gray-400">Fill out the form and I'll get back to you ASAP!</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-bold text-gray-900 mb-2">
+                    <label htmlFor="name" className="block text-sm font-bold text-gray-300 mb-2">
                       Your Name
                     </label>
                     <input
@@ -161,13 +153,13 @@ export function Contact() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 outline-none transition-all text-gray-900"
+                      className="w-full px-4 py-3 glass-input rounded-xl"
                       placeholder="John Doe"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-bold text-gray-900 mb-2">
+                    <label htmlFor="email" className="block text-sm font-bold text-gray-300 mb-2">
                       Your Email
                     </label>
                     <input
@@ -177,13 +169,13 @@ export function Contact() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 outline-none transition-all text-gray-900"
+                      className="w-full px-4 py-3 glass-input rounded-xl"
                       placeholder="john@example.com"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-bold text-gray-900 mb-2">
+                    <label htmlFor="message" className="block text-sm font-bold text-gray-300 mb-2">
                       Your Message
                     </label>
                     <textarea
@@ -193,14 +185,14 @@ export function Contact() {
                       rows={5}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 outline-none transition-all resize-none text-gray-900"
+                      className="w-full px-4 py-3 glass-input rounded-xl resize-none"
                       placeholder="Tell me about your project or idea..."
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full group/btn px-8 py-4 bg-gray-900 text-white rounded-2xl font-bold hover:bg-yellow-400 hover:text-gray-900 transition-all shadow-lg transform hover:-translate-y-1 flex items-center justify-center gap-2"
+                    className="w-full cursor-pointer group/btn px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white rounded-2xl font-bold transition-all shadow-lg hover:shadow-cyan-500/20 transform hover:-translate-y-1 flex items-center justify-center gap-2"
                   >
                     <span>Send Message</span>
                     <Send className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
@@ -213,9 +205,9 @@ export function Contact() {
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <div className="inline-block px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-full">
-            <p className="text-white font-medium">
-              Response time: <span className="text-yellow-400 font-bold">Usually within 24 hours</span> ⚡
+          <div className="inline-block px-8 py-4 glass rounded-full">
+            <p className="text-gray-300 font-medium">
+              Response time: <span className="text-cyan-400 font-bold">Usually within 24 hours</span>
             </p>
           </div>
         </div>

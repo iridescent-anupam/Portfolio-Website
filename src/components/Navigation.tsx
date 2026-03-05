@@ -42,7 +42,7 @@ export function Navigation() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? "glass-cyber backdrop-blur-md shadow-lg border-b border-cyan-500/20"
+        ? "glass-card-dark backdrop-blur-xl shadow-lg border-b border-cyan-500/20"
         : "backdrop-blur-sm bg-transparent"
         }`}
     >
