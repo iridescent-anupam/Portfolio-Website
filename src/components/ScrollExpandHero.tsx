@@ -139,7 +139,23 @@ export function ScrollExpandHero({
                     overflow: 'hidden',
                 }}
             >
-                {/* Layer 1: Full-bleed background image (blurred + darkened) */}
+                {/* Scroll progress bar — top edge fill */}
+            <div
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    height: '2px',
+                    width: `${scrollProgress * 100}%`,
+                    background: 'linear-gradient(90deg, #3b82f6, #60a5fa)',
+                    boxShadow: '0 0 8px rgba(59,130,246,0.8)',
+                    zIndex: 10,
+                    transition: 'width 0.05s linear',
+                    opacity: mediaFullyExpanded ? 0 : 1,
+                }}
+            />
+
+            {/* Layer 1: Full-bleed background image (blurred + darkened) */}
                 <div
                     style={{
                         position: 'absolute',
@@ -216,59 +232,97 @@ export function ScrollExpandHero({
                     />
                 </div>
 
-                {/* Layer 3: Title text overlaying the card */}
+                {/* Layer 3: Hero identity overlay — visible immediately on load */}
                 <div
                     style={{
                         position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        width: '100vw',
-                        transform: 'translate(-50%, -50%)',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
                         opacity: txtAlpha,
                         zIndex: 6,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        gap: isMobile ? '4px' : '12px',
-                        pointerEvents: 'none',
+                        pointerEvents: scrollProgress > 0.05 ? 'none' : 'auto',
+                        gap: '0px',
                     }}
                 >
-                    <h2
-                        className="font-display tracking-tight text-center"
+                    {/* Name — splits apart on scroll */}
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: isMobile ? '4px' : '8px' }}>
+                        <h2
+                            className="font-display tracking-tight text-center"
+                            style={{
+                                fontSize: isMobile ? '3rem' : 'clamp(3rem, 6.5vw, 7rem)',
+                                fontWeight: 700,
+                                color: 'white',
+                                transform: `translateX(-${slide}vw)`,
+                                textShadow: '0 4px 30px rgba(0,0,0,0.6), 0 1px 6px rgba(0,0,0,0.4)',
+                                margin: 0,
+                                lineHeight: 1.05,
+                            }}
+                        >
+                            {firstWord}
+                        </h2>
+                        <h2
+                            className="font-display tracking-tight text-center"
+                            style={{
+                                fontSize: isMobile ? '3rem' : 'clamp(3rem, 6.5vw, 7rem)',
+                                fontWeight: 700,
+                                color: 'white',
+                                transform: `translateX(${slide}vw)`,
+                                textShadow: '0 4px 30px rgba(0,0,0,0.6), 0 1px 6px rgba(0,0,0,0.4)',
+                                margin: 0,
+                                lineHeight: 1.05,
+                            }}
+                        >
+                            {rest}
+                        </h2>
+                    </div>
+
+                    {/* Role descriptor — HIGH PRIORITY: immediately visible */}
+                    {subtitle && (
+                        <p
+                            style={{
+                                fontSize: isMobile ? '0.75rem' : '1rem',
+                                color: 'rgba(255, 255, 255, 0.92)',
+                                fontWeight: 600,
+                                letterSpacing: '0.25em',
+                                textTransform: 'uppercase',
+                                whiteSpace: 'nowrap',
+                                margin: isMobile ? '10px 0 0' : '14px 0 0',
+                                textShadow: '0 2px 16px rgba(0,0,0,0.9)',
+                                borderTop: '1px solid rgba(255,255,255,0.25)',
+                                paddingTop: '12px',
+                            }}
+                        >
+                            {subtitle}
+                        </p>
+                    )}
+
+                    {/* Domain tagline — anchors aesthetic to professional identity */}
+                    <p
                         style={{
-                            fontSize: isMobile ? '3.5rem' : 'clamp(4rem, 8vw, 9rem)',
-                            fontWeight: 700,
-                            color: 'white',
-                            transform: `translateX(-${slide}vw)`,
-                            textShadow: '0 0 40px rgba(0,240,255,0.5), 0 0 80px rgba(0,240,255,0.2), 0 4px 30px rgba(0,0,0,0.9)',
-                            margin: 0,
-                            lineHeight: 1.1,
+                            fontSize: isMobile ? '0.7rem' : '0.85rem',
+                            color: 'rgba(255,255,255,0.65)',
+                            fontWeight: 400,
+                            letterSpacing: '0.08em',
+                            margin: '6px 0 0',
+                            textShadow: '0 2px 12px rgba(0,0,0,0.8)',
+                            fontStyle: 'italic',
                         }}
                     >
-                        {firstWord}
-                    </h2>
-                    <h2
-                        className="font-display tracking-tight text-center"
-                        style={{
-                            fontSize: isMobile ? '3.5rem' : 'clamp(4rem, 8vw, 9rem)',
-                            fontWeight: 700,
-                            color: 'white',
-                            transform: `translateX(${slide}vw)`,
-                            textShadow: '0 0 40px rgba(0,240,255,0.5), 0 0 80px rgba(0,240,255,0.2), 0 4px 30px rgba(0,0,0,0.9)',
-                            margin: 0,
-                            lineHeight: 1.1,
-                        }}
-                    >
-                        {rest}
-                    </h2>
+                        Building data-driven products that scale
+                    </p>
                 </div>
 
-                {/* Layer 4: Subtitle & scroll hint at bottom */}
+                {/* Layer 4: Scroll cue at bottom */}
                 <div
                     style={{
                         position: 'absolute',
-                        bottom: '6vh',
+                        bottom: '5vh',
                         left: '50%',
                         transform: 'translateX(-50%)',
                         opacity: txtAlpha,
@@ -276,50 +330,45 @@ export function ScrollExpandHero({
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
-                        gap: '12px',
+                        gap: '8px',
                         pointerEvents: 'none',
                     }}
                 >
-                    {subtitle && (
-                        <p
-                            style={{
-                                fontSize: isMobile ? '0.8rem' : '1.1rem',
-                                color: 'rgba(165, 230, 255, 0.7)',
-                                fontWeight: 300,
-                                letterSpacing: '0.3em',
-                                textTransform: 'uppercase',
-                                whiteSpace: 'nowrap',
-                                margin: 0,
-                                textShadow: '0 2px 12px rgba(0,0,0,0.8)',
-                            }}
-                        >
-                            {subtitle}
-                        </p>
-                    )}
                     {scrollHint && (
                         <motion.div
                             className="flex flex-col items-center gap-2"
-                            animate={{ opacity: scrollProgress > 0.1 ? 0 : [0.4, 1, 0.4] }}
+                            animate={{ opacity: scrollProgress > 0.1 ? 0 : [0.5, 1, 0.5] }}
                             transition={{ duration: 2, repeat: Infinity }}
                         >
                             <p style={{
-                                fontSize: '0.7rem',
-                                color: 'rgba(0, 220, 255, 0.5)',
-                                letterSpacing: '0.2em',
+                                fontSize: '0.65rem',
+                                color: 'rgba(255, 255, 255, 0.55)',
+                                letterSpacing: '0.25em',
                                 textTransform: 'uppercase',
                                 margin: 0,
+                                textShadow: '0 1px 8px rgba(0,0,0,0.6)',
                             }}>
-                                {scrollHint}
+                                Scroll to see projects
                             </p>
                             <motion.div
                                 style={{
-                                    width: '1px',
-                                    height: '32px',
-                                    background: 'linear-gradient(to bottom, rgba(0,220,255,0.6), transparent)',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    gap: '3px',
                                 }}
-                                animate={{ scaleY: [0.6, 1, 0.6] }}
-                                transition={{ duration: 2, repeat: Infinity }}
-                            />
+                                animate={{ y: [0, 6, 0] }}
+                                transition={{ duration: 1.5, repeat: Infinity }}
+                            >
+                                <div style={{ width: '1px', height: '20px', background: 'linear-gradient(to bottom, rgba(255,255,255,0.5), transparent)' }} />
+                                <div style={{
+                                    width: 0,
+                                    height: 0,
+                                    borderLeft: '5px solid transparent',
+                                    borderRight: '5px solid transparent',
+                                    borderTop: '6px solid rgba(255,255,255,0.5)',
+                                }} />
+                            </motion.div>
                         </motion.div>
                     )}
                 </div>
@@ -330,11 +379,11 @@ export function ScrollExpandHero({
                 style={{
                     position: 'relative',
                     zIndex: 20,
-                    background: 'linear-gradient(180deg, #050810 0%, #0a0f1e 100%)',
+                    background: 'linear-gradient(180deg, #090d1a 0%, #060a14 100%)',
                 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: showContent ? 1 : 0 }}
-                transition={{ duration: 0.7 }}
+                transition={{ duration: 0.25 }}
             >
                 {children}
             </motion.div>

@@ -13,7 +13,7 @@ export function CreativeStickers() {
 
         {/* Left arrow sticker */}
         <div className="absolute top-1/4 left-8 -rotate-12">
-          <div className="bg-pink-500 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
+          <div className="bg-pink-500 text-zinc-950 px-4 py-2 rounded-full font-bold text-sm shadow-lg">
             ← Cool stuff!
           </div>
         </div>

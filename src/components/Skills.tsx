@@ -18,11 +18,19 @@ export function Skills() {
   };
 
   const categoryAccents: Record<string, string> = {
-    "Product Management": "from-purple-400 to-pink-500",
-    "Technical Skills": "from-cyan-400 to-blue-500",
-    "Cloud & DevOps": "from-cyan-400 to-teal-500",
-    "Platform & Enterprise": "from-indigo-400 to-purple-500",
-    "Design & Tools": "from-pink-400 to-rose-500",
+    "Product Management": "from-blue-500 to-indigo-600",
+    "Technical Skills": "from-blue-400 to-blue-600",
+    "Cloud & DevOps": "from-amber-500 to-orange-500",
+    "Platform & Enterprise": "from-indigo-500 to-violet-600",
+    "Design & Tools": "from-amber-400 to-orange-400",
+  };
+
+  const categoryPillColors: Record<string, { bg: string; text: string; border: string }> = {
+    "Product Management": { bg: 'rgba(59,130,246,0.12)', text: '#93c5fd', border: 'rgba(59,130,246,0.25)' },
+    "Technical Skills":   { bg: 'rgba(34,211,238,0.1)',  text: '#67e8f9', border: 'rgba(34,211,238,0.2)'  },
+    "Cloud & DevOps":     { bg: 'rgba(251,191,36,0.1)',  text: '#fcd34d', border: 'rgba(251,191,36,0.2)'  },
+    "Platform & Enterprise": { bg: 'rgba(167,139,250,0.1)', text: '#c4b5fd', border: 'rgba(167,139,250,0.2)' },
+    "Design & Tools":    { bg: 'rgba(249,115,22,0.1)',  text: '#fdba74', border: 'rgba(249,115,22,0.2)'  },
   };
 
   return (
@@ -35,33 +43,32 @@ export function Skills() {
 
       {/* Background glow */}
       <div className="absolute top-20 right-10 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto relative">
         {/* Header */}
         <div className="text-center mb-10 relative">
           <div className="inline-flex items-center gap-3 mb-4">
-            <div className="px-5 py-2 glass-accent rounded-full font-bold text-sm text-cyan-400 tracking-widest uppercase">
+            <div className="px-5 py-2 skeu-pill font-accent font-bold text-xs tracking-widest uppercase" style={{ color: '#7dd3fc' }}>
               MY TOOLKIT
             </div>
-            <div className="px-3 py-1.5 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-full font-bold text-xs">
+            <div className="px-3 py-1.5 rounded-full font-bold text-xs text-white" style={{ background: 'linear-gradient(135deg, #f97316, #ec4899)', boxShadow: '0 0 14px rgba(249,115,22,0.35)' }}>
               50+ Skills
             </div>
           </div>
 
-          <h2 className="text-white mb-3 relative inline-block text-3xl md:text-4xl font-bold">
+          <h2 className="mb-3 relative inline-block text-3xl md:text-4xl font-bold" style={{ color: '#f1f5f9' }}>
             Full-stack{" "}
             <span className="relative">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
+              <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg, #60a5fa, #818cf8, #c084fc)' }}>
                 product toolkit
               </span>
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full opacity-30"></div>
+              <div className="absolute -bottom-2 left-0 right-0 h-1 rounded-full opacity-50" style={{ background: 'linear-gradient(90deg, #60a5fa, #818cf8)' }}></div>
             </span>
           </h2>
 
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            From strategy to code, I bridge business and
-            technology
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#94a3b8' }}>
+            From strategy to code, I bridge business and technology
           </p>
         </div>
 
@@ -81,41 +88,43 @@ export function Skills() {
                 className={`group ${isLarge ? "lg:col-span-2 lg:row-span-1" : ""}`}
               >
                 <div
-                  className="h-full rounded-3xl p-[1px] shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 bg-gradient-to-br from-white/10 to-white/5 hover:from-white/15 hover:to-white/10"
+                  className="h-full rounded-3xl p-[1px] transition-all transform hover:-translate-y-1"
+                  style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))', boxShadow: '0 12px 40px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3)' }}
                 >
-                  <div className="h-full glass-card-dark rounded-[22px] p-6">
+                  <div className="h-full rounded-[22px] p-6" style={{ background: 'linear-gradient(145deg, #1b1f2d, #111827)', boxShadow: 'inset 1px 1px 0px rgba(255,255,255,0.07), inset -1px -1px 0px rgba(0,0,0,0.4)' }}>
                     {/* Category Header */}
                     <div className="flex items-center gap-4 mb-4">
                       <div
                         className={`w-12 h-12 bg-gradient-to-br ${accentGradient} rounded-2xl flex items-center justify-center transform -rotate-6 group-hover:rotate-0 transition-transform shadow-lg`}
                       >
                         {Icon && (
-                          <Icon className="w-6 h-6 text-white" />
+                          <Icon className="w-6 h-6 text-zinc-950" />
                         )}
                       </div>
                       <div>
-                        <h3 className="text-white font-bold text-lg">
+                        <h3 className="font-bold text-lg" style={{ color: '#f1f5f9' }}>
                           {category}
                         </h3>
-                        <div className="text-xs text-gray-500 font-medium">
+                        <div className="text-xs font-medium" style={{ color: '#94a3b8' }}>
                           {skillList.length} skills
                         </div>
                       </div>
                     </div>
 
-                    {/* Skills Pills */}
+                    {/* Skills Pills — colour-coded per category */}
                     <div className="flex flex-wrap gap-2">
-                      {skillList.map((skill) => (
-                        <div
-                          key={skill}
-                          className={`group/skill px-3 py-1.5 glass-subtle hover:glass-accent text-gray-300 hover:text-cyan-300 rounded-lg transition-all cursor-default ${isLarge ? "text-sm" : "text-xs"
-                            }`}
-                        >
-                          <span className="font-medium">
-                            {skill}
-                          </span>
-                        </div>
-                      ))}
+                      {skillList.map((skill) => {
+                        const pill = categoryPillColors[category] || { bg: 'rgba(125,211,252,0.1)', text: '#7dd3fc', border: 'rgba(125,211,252,0.2)' };
+                        return (
+                          <div
+                            key={skill}
+                            className={`group/skill px-3 py-1.5 rounded-full transition-all cursor-default ${isLarge ? "text-sm" : "text-xs"}`}
+                            style={{ background: pill.bg, color: pill.text, border: `1px solid ${pill.border}`, fontWeight: 500 }}
+                          >
+                            <span className="font-medium">{skill}</span>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>

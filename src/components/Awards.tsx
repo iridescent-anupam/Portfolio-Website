@@ -5,7 +5,7 @@ import { awards } from "../data/content";
 
 export function Awards() {
   return (
-    <section className="py-20 px-4 bg-[#0a0a0f] relative overflow-hidden">
+    <section className="py-20 px-4 relative overflow-hidden" style={{ background: '#090d1a' }}>
       {/* Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-yellow-500/5 to-orange-500/5 rounded-full blur-3xl"></div>
       
@@ -20,7 +20,7 @@ export function Awards() {
             Awards & Honors
           </h2>
           
-          <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
+          <p className="max-w-2xl mx-auto text-lg" style={{ color: '#94a3b8' }}>
             Recognized for exceptional performance and innovation
           </p>
           
@@ -58,7 +58,7 @@ export function Awards() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-zinc-300 leading-relaxed">{award.description}</p>
+                  <p className="leading-relaxed" style={{ color: '#cbd5e1' }}>{award.description}</p>
                   
                   {/* Decorative line */}
                   <div className="mt-4 h-1 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full"></div>

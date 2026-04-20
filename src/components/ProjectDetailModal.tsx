@@ -56,7 +56,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
               {project.title}
             </h2>
             
-            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-zinc-500">
               <div className="flex items-center gap-2">
                 <Briefcase className="w-4 h-4 text-gold-500" />
                 <span>{project.role}</span>
@@ -85,7 +85,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
           <div className="space-y-6 mb-8">
             <div>
               <h3 className="text-xl font-display text-gold-500 mb-4 uppercase tracking-wider">Synopsis</h3>
-              <div className="text-sm md:text-base text-gray-300 leading-relaxed whitespace-pre-line space-y-4">
+              <div className="text-sm md:text-base text-zinc-600 leading-relaxed whitespace-pre-line space-y-4">
                 {project.fullDescription.split('\n\n').map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
@@ -105,7 +105,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                   <div className="text-2xl lg:text-3xl font-display text-gold-500 mb-2">
                     {metric.value}
                   </div>
-                  <div className="text-xs text-gray-400 uppercase tracking-wider">{metric.label}</div>
+                  <div className="text-xs text-zinc-500 uppercase tracking-wider">{metric.label}</div>
                 </div>
               ))}
             </div>
@@ -121,7 +121,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
               {project.technologies.map((tech, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1.5 text-xs bg-gold-500/10 text-gray-300 border border-gold-500/30"
+                  className="px-3 py-1.5 text-xs bg-gold-500/10 text-zinc-600 border border-gold-500/30"
                 >
                   {tech}
                 </span>

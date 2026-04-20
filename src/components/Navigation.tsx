@@ -42,18 +42,24 @@ export function Navigation() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? "glass-card-dark backdrop-blur-xl shadow-lg border-b border-cyan-500/20"
+        ? "backdrop-blur-xl border-b"
         : "backdrop-blur-sm bg-transparent"
         }`}
+      style={isScrolled ? { background: 'rgba(9,13,26,0.85)', borderColor: 'rgba(255,255,255,0.07)' } : {}}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 gradient-cyber rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform glow-cyan">
-              <span className="font-display font-bold text-xl text-[#0A0E1A]">A</span>
+            <a href="#hero" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform"
+                style={{
+                  background: 'linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%)',
+                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 12px rgba(37,99,235,0.4)',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                }}>
+              <span className="font-display font-bold text-xl" style={{ color: 'white', textShadow: '0 1px 3px rgba(0,0,50,0.5)' }}>A</span>
             </div>
-            <span className="font-display text-xl font-bold hidden sm:block tracking-wider text-white group-hover:text-cyan-400 transition-colors">
+            <span className={`font-display text-xl font-bold hidden sm:block tracking-wider transition-colors ${isScrolled ? "text-slate-100 group-hover:text-blue-400" : "text-white drop-shadow-md group-hover:text-blue-200"}`}>
               ANUPAM SANIDHYA
             </span>
           </a>
@@ -66,14 +72,25 @@ export function Navigation() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className={`relative px-4 py-2 text-sm font-accent tracking-wider rounded-lg transition-all ${isActive ? "text-cyan-400" : "text-gray-300 hover:text-cyan-400"
+                  className={`relative px-4 py-2 text-sm font-accent tracking-wider rounded-lg transition-all ${isActive
+                    ? (isScrolled ? "text-cyan-300" : "text-cyan-200")
+                    : (isScrolled ? "text-slate-300 hover:text-blue-400" : "text-white/90 hover:text-white")
                     }`}
                 >
                   {item.label}
                   {isActive && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute inset-0 bg-cyan-500/10 rounded-lg -z-10 border border-cyan-500/30"
+                      className="absolute inset-0 rounded-lg -z-10"
+                      style={{ background: 'rgba(34,211,238,0.08)', border: '1px solid rgba(34,211,238,0.2)' }}
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeUnderline"
+                      className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full"
+                      style={{ background: 'linear-gradient(90deg, #22d3ee, #60a5fa)', boxShadow: '0 0 6px #22d3ee' }}
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -84,7 +101,7 @@ export function Navigation() {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="ml-4 px-6 py-2.5 gradient-blade-runner rounded-full transition-all glow-cyan tracking-wider text-[#0A0E1A] font-bold font-accent"
+              className="ml-4 px-6 py-2.5 bg-[#2563EB] hover:bg-blue-700 rounded-full transition-all tracking-wider text-white font-bold font-accent shadow-md hover:shadow-blue-500/30"
             >
               LET'S TALK
             </motion.a>
@@ -93,7 +110,7 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-cyan-400 hover:bg-cyan-500/10 transition-colors"
+            className="md:hidden p-2 rounded-lg text-blue-600 hover:bg-cyan-500/10 transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -111,7 +128,8 @@ export function Navigation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden overflow-hidden border-t border-cyan-500/20 bg-[#0A0E1A]/95 backdrop-blur-xl"
+              className="md:hidden overflow-hidden border-t border-white/10 backdrop-blur-xl"
+              style={{ background: 'rgba(9,13,26,0.97)' }}
             >
               <div className="flex flex-col gap-2 py-4">
                 {navItems.map((item) => (
@@ -120,8 +138,8 @@ export function Navigation() {
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`px-4 py-3 rounded-lg transition-all font-accent tracking-wider ${activeSection === item.href.substring(1)
-                      ? "text-cyan-400 bg-cyan-500/10"
-                      : "text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/5"
+                      ? "text-cyan-300 bg-cyan-500/10 border border-cyan-500/20"
+                      : "text-slate-300 hover:text-cyan-300 hover:bg-blue-500/5"
                       }`}
                   >
                     {item.label}

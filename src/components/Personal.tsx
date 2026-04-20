@@ -21,10 +21,10 @@ export function Personal() {
                     viewport={{ once: true }}
                     className="mb-16"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display text-gray-900 dark:text-white">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display text-gray-900 dark:text-zinc-950">
                         Beyond the <span className="text-cyan-500">Code</span>
                     </h2>
-                    <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl font-light">
+                    <p className="text-xl text-gray-600 dark:text-zinc-500 max-w-2xl font-light">
                         When I'm not building products, I'm exploring new worlds—both real and fictional.
                     </p>
                 </motion.div>
@@ -54,16 +54,16 @@ export function Personal() {
 
                                 {/* Content */}
                                 <div className="absolute bottom-0 left-0 p-6 w-full">
-                                    <div className="flex items-center gap-2 mb-2 text-cyan-400">
+                                    <div className="flex items-center gap-2 mb-2 text-blue-600">
                                         <Icon className="w-5 h-5" />
                                         <span className="text-sm font-bold uppercase tracking-wider font-accent">
                                             {interest.category}
                                         </span>
                                     </div>
-                                    <h3 className="text-2xl font-bold text-white mb-2 font-display">
+                                    <h3 className="text-2xl font-bold text-zinc-950 mb-2 font-display">
                                         {interest.title}
                                     </h3>
-                                    <p className="text-gray-300 text-sm line-clamp-2 group-hover:line-clamp-none transition-all">
+                                    <p className="text-zinc-600 text-sm line-clamp-2 group-hover:line-clamp-none transition-all">
                                         {interest.description}
                                     </p>
                                 </div>

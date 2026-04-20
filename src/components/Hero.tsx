@@ -7,8 +7,7 @@ const personalInfo = {
   name: "Anupam Sanidhya",
   title: "Technical Product Manager",
   tagline: "Built civic tech serving 39 counties across WA, USA | Doubled global operational efficiency at Lexmark International | Technical PM: Code → Strategy → Scale",
-  location: "Seattle, WA",
-  resume: "/path-to-your-resume.pdf" // TODO: Update with your resume link
+  location: "Seattle, WA"
 };
 
 const techStack = ["Product Management & Strategy", "Digital Transformation", "Agile/SAFe® Delivery", "Cross-Functional Leadership", "Data-Driven Growth"];
@@ -51,7 +50,7 @@ export function Hero() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="relative z-10 text-5xl md:text-7xl font-bold tracking-tight font-display leading-tight text-white"
+                  className="relative z-10 text-5xl md:text-7xl font-bold tracking-tight font-display leading-tight text-zinc-950"
                 >
                   Hey, I'm{" "}
                   <span className="relative inline-block">
@@ -96,7 +95,7 @@ export function Hero() {
               {techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1.5 text-xs font-accent font-bold tracking-wider bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 rounded-full hover:bg-cyan-500/20 transition-colors"
+                  className="px-3 py-1.5 text-xs font-accent font-bold tracking-wider bg-cyan-500/10 text-blue-600 border border-cyan-500/30 rounded-full hover:bg-cyan-500/20 transition-colors"
                 >
                   {tech}
                 </span>
@@ -112,20 +111,10 @@ export function Hero() {
             >
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 px-8 py-4 border-gradient-cyber rounded-xl font-accent font-bold hover:glow-cyan transition-all transform hover:-translate-y-1 tracking-wider bg-[#1A1F3A] text-white relative"
+                className="inline-flex items-center gap-2 px-8 py-4 border-gradient-cyber rounded-xl font-accent font-bold hover:glow-cyan transition-all transform hover:-translate-y-1 tracking-wider bg-[#1A1F3A] text-zinc-950 relative"
               >
                 <span className="relative z-10">VIEW WORK</span>
                 <ArrowRight className="w-5 h-5 relative z-10" />
-              </a>
-
-              <a
-                href={personalInfo.resume}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group px-6 py-4 gradient-dune rounded-xl font-accent font-bold hover:glow-orange transition-all transform hover:-rotate-2 tracking-wider text-[#0A0E1A]"
-              >
-                <Download className="w-5 h-5 inline-block mr-2 group-hover:animate-bounce" />
-                RESUME
               </a>
             </motion.div>
 
@@ -143,7 +132,7 @@ export function Hero() {
               ].map((stat, index) => (
                 <div key={index} className="text-center glass-cyber p-4 rounded-lg">
                   <div className="text-3xl font-display font-bold text-glow-orange text-[#FFA066]">{stat.value}</div>
-                  <div className="text-xs mt-1 font-body tracking-wide text-gray-300 font-semibold">{stat.label}</div>
+                  <div className="text-xs mt-1 font-body tracking-wide text-zinc-600 font-semibold">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -160,16 +149,28 @@ export function Hero() {
               {/* Main Photo Container */}
               <div className="relative z-10">
                 {/* Photo with glass morphism border */}
-                <div className="relative group">
-                  {/* Animated gradient border */}
-                  <div className="absolute -inset-1 gradient-blade-runner rounded-3xl blur-sm group-hover:blur-md transition-all glow-cyan animate-gradient"></div>
+                <div className="relative group transition-transform duration-700 hover:-translate-y-2 hover:scale-[1.02] cursor-pointer">
+                  {/* Massive interactive ambient outer glow */}
+                  <div 
+                    className="absolute -inset-6 rounded-[3rem] opacity-0 group-hover:opacity-100 transition-all duration-700 blur-3xl pointer-events-none"
+                    style={{ background: "radial-gradient(circle at 50% 50%, rgba(0,245,255,0.4) 0%, rgba(255,0,110,0.3) 50%, transparent 100%)" }}
+                  ></div>
+
+                  {/* Base dynamic border glow */}
+                  <div 
+                    className="absolute -inset-1.5 rounded-3xl opacity-30 group-hover:opacity-100 blur-md group-hover:blur-lg transition-all duration-500 pointer-events-none"
+                    style={{ background: "linear-gradient(135deg, #00F5FF 0%, #FF006E 50%, #F4C430 100%)" }}
+                  ></div>
 
                   {/* Photo container */}
-                  <div className="relative glass-cyber rounded-3xl p-2 overflow-hidden">
+                  <div 
+                    className="relative rounded-3xl p-1.5 overflow-hidden z-10 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(0,245,255,0.2)]"
+                    style={{ background: "rgba(15, 23, 42, 0.9)", border: "1px solid rgba(255,255,255,0.05)" }}
+                  >
                     <img
                       src={profileImage}
                       alt="Anupam Sanidhya"
-                      className="w-full h-auto rounded-2xl shadow-2xl"
+                      className="w-full h-auto rounded-2xl relative z-20"
                     />
 
                     {/* Scan line effect overlay */}
@@ -189,7 +190,7 @@ export function Hero() {
 
                 {/* Floating info cards */}
                 <div className="absolute -top-6 -left-6 glass-dune rounded-xl p-3 transform -rotate-6 hover:rotate-0 transition-all glow-orange shadow-xl">
-                  <div className="font-accent font-bold text-xs mb-1 tracking-wider text-white">📍 LOCATION</div>
+                  <div className="font-accent font-bold text-xs mb-1 tracking-wider text-zinc-950">📍 LOCATION</div>
                   <div className="text-sm font-body font-semibold text-[#F4C430]">{personalInfo.location}</div>
                 </div>
 

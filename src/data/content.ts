@@ -5,6 +5,8 @@ import canvasEventsImg from "../assets/Canvas+ Events.jpg";
 import starbucksPdf from "../assets/Starbucks Strategy - Anupam Sanidhya.pdf";
 import canvasPdf from "../assets/Canvas+ Events Presentation.pdf";
 import canvasMaterialsPdf from "../assets/Canvas+ Events Captured materials.pdf";
+import canvaTeamsPdf from "../assets/Canva Teams & Collaboration Friction.pdf";
+import canvaTeamsImg from "../assets/Canva Teams & Collaboration Friction.png";
 
 // Personal Information
 export const personalInfo = {
@@ -18,7 +20,6 @@ export const personalInfo = {
   email: "asanid@uw.edu",
   phone: "+1-206-519-2052",
   location: "Seattle, WA, USA",
-  resumeUrl: "#",
   social: {
     linkedin: "https://linkedin.com/in/anupamsanidhya",
     github: "https://github.com/iridescent-anupam",
@@ -68,6 +69,7 @@ export interface Project {
 
 // Projects - Brief for homepage, full details available
 export const projects: Project[] = [
+
   {
     id: "pco-connect",
     title: "PCO Connect",
@@ -132,6 +134,58 @@ Impact: Centralized fragmented county-level information into a single, user-frie
         type: "pdf",
         url: pcoConnectDoc,
         title: "Technical Documentation & Product Spec",
+      },
+    ],
+  },
+  {
+    id: "canva-collaboration",
+    title: "Canva Teams & Collaboration",
+    role: "Product Designer & Manager",
+    company: "Enterprise Workflow Concept",
+    year: "2026",
+    duration: "Strategic Design Study",
+    image: canvaTeamsImg,
+    description:
+      "An autonomous AI teammate concept to enforce brand compliance, streamline multi-person collaboration, and reduce enterprise approval cycle times.",
+    challenge:
+      "Enterprises face severe friction and misalignment in collaboration. Multi-person editing destroys the structural integrity of locked brand templates, causing ~$65K per creative annually wasted on manual reviews. Median approval cycles lag between 24 and 72 hours.",
+    solution:
+      "An autonomous AI teammate concept deploying layout remediation to instantly fix broken layouts, pre-flight compliance scoring, and RAG to correct missing disclaimers and off-brand wording. Built deterministic logic to heavily mitigate hallucinations.",
+    fullDescription: `Organizations require measurable ROI through deep workflow automation, operational efficiency, and risk mitigation. Enterprises currently face massive collaboration friction due to misalignment, where multi-person editing frequently destroys the structural integrity of locked brand templates. This inefficiency directly causes enterprises to allocate approximately $65K per creative annually on manual reviews, forcing median approval cycles to drag between 24 and 72 hours.
+
+I designed a concept of autonomous AI teammate to enforce robust brand compliance and dramatically streamline enterprise collaboration. 
+
+Key Systems:
+• Autonomous Layout Remediation: Instantly repairs broken layouts and structural templates caused by multi-user misalignments.
+• Pre-flight Compliance Scoring: Evaluates design elements precisely before they are submitted for review, filtering out major deviations.
+• RAG Integration: Actively corrects missing disclaimers and sanitizes off-brand wording.
+• Deterministic Logic Validation: Applies stringent guardrails to mitigate hallucinations and false positives during AI rule enforcement.
+
+The primary objective of these tools is deep operational efficiency: driving the approval cycle time down significantly to under 8 hours while minimizing brand compliance risks.`,
+    metrics: [
+      { value: "8 hrs", label: "Target Approval Time" },
+      { value: "$65K", label: "Savings/Creative" },
+      { value: "AI-RAG", label: "Compliance Core" },
+    ],
+    tags: [
+      "AI Strategy",
+      "Process Automation",
+      "Product Design",
+      "Enterprise Tech",
+    ],
+    technologies: [
+      "RAG Models",
+      "Autonomous Agents",
+      "Workflow Automation",
+      "Figma",
+      "Deterministic AI"
+    ],
+    liveUrl: "https://stitch.withgoogle.com/preview/18166302206287153013?node-id=18b4f688b31b49f192bb1f2662a26392",
+    media: [
+      {
+        type: "pdf",
+        url: canvaTeamsPdf,
+        title: "Canva Teams & Collaboration Friction Analysis",
       },
     ],
   },
@@ -522,10 +576,10 @@ export const education = [
     degree: "Master of Science - MS",
     field: "Information Management",
     school: "University of Washington",
-    location: "Seattle, WA",
+    location: "Seattle, WA, United States",
     period: "2024 - 2025",
     gpa: "3.93/4.0",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/5/58/University_of_Washington_seal.svg/1200px-University_of_Washington_seal.svg.png",
+    logo: "https://1000logos.net/wp-content/uploads/2022/07/University-of-Washington-Seal.png",
     description:
       "Early Career Track (ECA) with Program/Product Management & Consulting Specialization (PPMC)",
     achievements: [
@@ -679,7 +733,7 @@ export const awards = [
     issuer: "Lexmark International",
     date: "Mar 2023",
     description:
-      "Awarded for mentoring junior team members with JavaScript training & developing Field Service Mobile App",
+      "Awarded for Partner Portal Restructuring",
   },
   {
     id: "rtw-2022",

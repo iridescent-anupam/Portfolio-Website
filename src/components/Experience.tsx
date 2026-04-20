@@ -11,6 +11,15 @@ import { experience, personalInfo } from "../data/content";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useState } from "react";
 
+// Rotate through vibrant accent colours for each experience card
+const cardAccents = [
+  { border: '#3b82f6', glow: 'rgba(59,130,246,0.08)',  check: '#60a5fa', label: 'rgba(59,130,246,0.7)'  },  // blue
+  { border: '#8b5cf6', glow: 'rgba(139,92,246,0.08)',  check: '#a78bfa', label: 'rgba(139,92,246,0.7)'  },  // violet
+  { border: '#06b6d4', glow: 'rgba(6,182,212,0.08)',   check: '#22d3ee', label: 'rgba(6,182,212,0.7)'   },  // cyan
+  { border: '#f59e0b', glow: 'rgba(245,158,11,0.08)',  check: '#fbbf24', label: 'rgba(245,158,11,0.7)'  },  // amber
+  { border: '#ec4899', glow: 'rgba(236,72,153,0.08)',  check: '#f472b6', label: 'rgba(236,72,153,0.7)'  },  // pink
+];
+
 export function Experience() {
   const [expandedIds, setExpandedIds] = useState<string[]>([]);
 
@@ -38,16 +47,14 @@ export function Experience() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 glass-accent rounded-full mb-4">
-            <span className="text-sm font-bold text-cyan-400 uppercase tracking-widest">
-              Work Experience
-            </span>
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 skeu-pill font-accent font-bold tracking-widest text-xs uppercase mb-4" style={{ color: '#7dd3fc' }}>
+            Work Experience
           </div>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6" style={{ color: '#f1f5f9' }}>
             Driving impact at{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">scale</span>
+            <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg, #60a5fa, #818cf8)' }}>scale</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto font-body">
+          <p className="text-xl max-w-3xl mx-auto font-body" style={{ color: '#94a3b8' }}>
             3+ years of product leadership across enterprise
             systems, mobile apps, and SaaS platforms.
           </p>
@@ -61,6 +68,7 @@ export function Experience() {
               ? exp.achievements
               : exp.achievements.slice(0, 3);
 
+            const accent = cardAccents[index % cardAccents.length];
             return (
               <motion.div
                 key={exp.id}
@@ -70,20 +78,27 @@ export function Experience() {
                 transition={{ delay: index * 0.1 }}
                 className="relative"
               >
-                {/* Glass Card */}
-                <div className="glass-card-dark rounded-3xl p-6 md:p-8 hover:border-cyan-500/30 transition-all group relative overflow-hidden shadow-xl">
-                  {/* Background accent */}
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/3 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                {/* Coloured left-border accent strip */}
+                <div className="absolute left-0 top-6 bottom-6 w-1 rounded-r-full z-20" style={{ background: accent.border, boxShadow: `0 0 12px ${accent.border}` }}></div>
+                {/* Skeuomorphic raised card */}
+                <div className="rounded-3xl pl-7 pr-6 md:pr-8 py-6 md:py-8 group relative overflow-hidden transition-all hover:-translate-y-1"
+                  style={{
+                    background: 'linear-gradient(145deg, #1b1f2d, #111827)',
+                    boxShadow: `inset 1px 1px 0px rgba(255,255,255,0.07), inset -1px -1px 0px rgba(0,0,0,0.4), 0 20px 60px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.3)`,
+                    border: `1px solid rgba(255,255,255,0.04)`,
+                  }}>
+                  {/* Ambient coloured glow top-right */}
+                  <div className="absolute top-0 right-0 w-72 h-72 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" style={{ background: accent.glow }}></div>
 
                   <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6 relative z-10">
                     <div className="flex-1">
-                      <h3 className="text-2xl font-display font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                      <h3 className="text-2xl font-display font-bold mb-2 group-hover:text-blue-400 transition-colors" style={{ color: '#f1f5f9' }}>
                         {exp.role}
                       </h3>
-                      <div className="text-lg font-semibold text-gray-300 mb-3">
+                      <div className="text-lg font-semibold mb-3" style={{ color: '#94a3b8' }}>
                         {exp.company}
                       </div>
-                      <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+                      <div className="flex flex-wrap gap-4 text-sm" style={{ color: '#64748b' }}>
                         <div className="flex items-center gap-1.5">
                           <MapPin className="w-4 h-4 text-cyan-500" />
                           <span>{exp.location}</span>
@@ -95,10 +110,10 @@ export function Experience() {
                       </div>
                     </div>
 
-                    {/* Logo */}
+                    {/* Logo — compact, supporting element */}
                     <div
-                      style={{ width: '100px', height: '100px', minWidth: '200px', minHeight: '120px' }}
-                      className="glass-subtle rounded-2xl p-2 flex-shrink-0"
+                      style={{ width: '80px', height: '80px', minWidth: '80px', minHeight: '80px', background: 'linear-gradient(145deg, #1b1f2d, #111827)', boxShadow: 'inset 1px 1px 3px rgba(0,0,0,0.6), inset -1px -1px 2px rgba(255,255,255,0.04)' }}
+                      className="rounded-2xl p-2 flex-shrink-0 overflow-hidden"
                     >
                       <ImageWithFallback
                         src={exp.logo}
@@ -110,13 +125,13 @@ export function Experience() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-400 leading-relaxed mb-6 font-body text-sm md:text-base border-l-2 border-cyan-500/30 pl-4">
+                  <p className="leading-relaxed mb-6 font-body text-sm md:text-base pl-4" style={{ color: '#94a3b8', borderLeft: `2px solid ${accent.border}60` }}>
                     {exp.description}
                   </p>
 
                   {/* Key Achievements */}
                   <div className="space-y-3">
-                    <div className="text-xs font-bold text-cyan-500 uppercase tracking-widest flex items-center gap-2">
+                    <div className="text-xs font-bold uppercase tracking-widest flex items-center gap-2" style={{ color: accent.border }}>
                       <Award className="w-4 h-4" />
                       Key Achievements
                     </div>
@@ -132,8 +147,8 @@ export function Experience() {
                             transition={{ duration: 0.2 }}
                             className="flex items-start gap-3"
                           >
-                            <CheckCircle2 className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
-                            <p className="text-sm text-gray-400 leading-relaxed">
+                            <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: accent.check }} />
+                            <p className="text-sm leading-relaxed" style={{ color: '#cbd5e1' }}>
                               {achievement}
                             </p>
                           </motion.div>
@@ -145,7 +160,7 @@ export function Experience() {
                     {exp.achievements.length > 3 && (
                       <button
                         onClick={() => toggleExpand(exp.id)}
-                        className="inline-flex items-center gap-2 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors mt-2 group/btn cursor-pointer"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors mt-2 group/btn cursor-pointer"
                       >
                         {isExpanded ? (
                           <>
@@ -165,31 +180,6 @@ export function Experience() {
             );
           })}
         </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center"
-        >
-          <div className="inline-block glass-card-dark rounded-3xl p-8 max-w-2xl">
-            <Award className="w-12 h-12 text-cyan-400 mx-auto mb-4 animate-pulse" />
-            <h3 className="text-xl font-display font-bold text-white mb-3">
-              Want to know more about my experience?
-            </h3>
-            <p className="text-gray-400 mb-6">
-              Download my full resume for detailed information
-              about my work history and accomplishments.
-            </p>
-            <a
-              href={personalInfo.resumeUrl}
-              className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-cyan-500/25"
-            >
-              <span>Download Resume</span>
-            </a>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

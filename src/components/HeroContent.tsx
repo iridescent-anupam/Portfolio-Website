@@ -1,4 +1,4 @@
-import { ArrowRight, Download, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import profileImage from "../assets/profile.png";
 
@@ -6,8 +6,7 @@ const personalInfo = {
     name: "Anupam Sanidhya",
     title: "Technical Product Manager",
     tagline: "Built civic tech serving 39 counties across WA, USA | Doubled global operational efficiency at Lexmark International | Technical PM: Code → Strategy → Scale",
-    location: "Seattle, WA",
-    resume: "/path-to-your-resume.pdf"
+    location: "Seattle, WA"
 };
 
 const techStack = ["Product Management & Strategy", "Digital Transformation", "Agile/SAFe® Delivery", "Cross-Functional Leadership", "Data-Driven Growth"];
@@ -15,25 +14,25 @@ const techStack = ["Product Management & Strategy", "Digital Transformation", "A
 export function HeroContent() {
     return (
         <section id="hero" className="relative overflow-hidden px-6 lg:px-8 py-20">
-            {/* Subtle background glow */}
+            {/* Skeuomorphic ambient glows */}
             <div className="absolute inset-0 -z-10">
-                <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange-500/5 rounded-full blur-3xl"></div>
+                <div className="absolute top-20 right-0 w-[600px] h-[600px] rounded-full blur-3xl" style={{ background: 'radial-gradient(ellipse, rgba(37,99,235,0.08) 0%, transparent 70%)' }}></div>
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-3xl" style={{ background: 'radial-gradient(ellipse, rgba(14,165,233,0.06) 0%, transparent 70%)' }}></div>
             </div>
 
             <div className="max-w-7xl mx-auto w-full relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
                     <div className="space-y-8 relative">
-                        {/* Glass badge */}
+                        {/* Skeuomorphic availability badge — debossed pill */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-accent"
+                            className="inline-flex items-center gap-2 px-4 py-2 skeu-pill"
                         >
-                            <Sparkles className="w-4 h-4 text-cyan-400" />
-                            <span className="font-accent font-bold text-sm uppercase tracking-widest text-cyan-400">
+                            <Sparkles className="w-4 h-4 text-blue-400" />
+                            <span className="font-accent font-bold text-sm uppercase tracking-widest text-blue-400">
                                 Available for Opportunities
                             </span>
                         </motion.div>
@@ -45,12 +44,18 @@ export function HeroContent() {
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.4 }}
-                                    className="relative z-10 text-5xl md:text-7xl font-bold tracking-tight font-display leading-tight text-white"
+                                    className="relative z-10 text-5xl md:text-7xl font-bold tracking-tight font-display leading-tight"
+                                    style={{ color: '#f1f5f9', textShadow: '0 2px 20px rgba(0,0,0,0.8)' }}
                                 >
                                     Hey, I'm{" "}
                                     <span className="relative inline-block">
-                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">{personalInfo.name}</span>
-                                        <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full"></div>
+                                        <span className="text-transparent bg-clip-text"
+                                            style={{ backgroundImage: 'linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%)' }}>
+                                            {personalInfo.name}
+                                        </span>
+                                        <div className="absolute -bottom-2 left-0 right-0 h-[2px]"
+                                            style={{ background: 'linear-gradient(90deg, #3b82f6, #60a5fa)', boxShadow: '0 0 8px rgba(59,130,246,0.6)' }}>
+                                        </div>
                                     </span>
                                     <span className="inline-block ml-2" style={{ animation: 'wave 2s ease-in-out infinite' }}>👋</span>
                                 </motion.h1>
@@ -62,11 +67,12 @@ export function HeroContent() {
                                 transition={{ delay: 0.6 }}
                                 className="flex items-baseline gap-4 flex-wrap"
                             >
-                                <h2 className="text-2xl md:text-3xl font-display text-cyan-300/80">
+                                <h2 className="text-2xl md:text-3xl font-display" style={{ color: '#7dd3fc' }}>
                                     {personalInfo.title}
                                 </h2>
-                                <div className="px-4 py-1.5 glass-accent-warm rounded-full transform rotate-2">
-                                    <span className="font-accent font-bold text-sm tracking-wider text-orange-300">3+ YEARS EXP</span>
+                                {/* Skeuomorphic embossed badge */}
+                                <div className="px-4 py-1.5 skeu-btn transform rotate-2" style={{ display: 'inline-block' }}>
+                                    <span className="font-accent font-bold text-sm tracking-wider text-amber-400">3+ YEARS EXP</span>
                                 </div>
                             </motion.div>
                         </div>
@@ -75,12 +81,13 @@ export function HeroContent() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.8 }}
-                            className="text-xl leading-relaxed max-w-lg font-body text-gray-300"
+                            className="text-lg leading-relaxed max-w-lg font-body"
+                            style={{ color: '#94a3b8' }}
                         >
                             {personalInfo.tagline}
                         </motion.p>
 
-                        {/* Tech Stack Pills */}
+                        {/* Tech Stack Pills — skeuomorphic debossed pills */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -90,14 +97,15 @@ export function HeroContent() {
                             {techStack.map((tech) => (
                                 <span
                                     key={tech}
-                                    className="px-3 py-1.5 text-xs font-accent font-bold tracking-wider glass-accent rounded-full text-cyan-300 hover:bg-cyan-500/10 transition-colors cursor-default"
+                                    className="px-3 py-1.5 text-xs font-accent font-bold tracking-wider skeu-pill cursor-default transition-all"
+                                    style={{ color: '#7dd3fc' }}
                                 >
                                     {tech}
                                 </span>
                             ))}
                         </motion.div>
 
-                        {/* CTAs */}
+                        {/* CTAs — skeuomorphic embossed buttons */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -106,24 +114,16 @@ export function HeroContent() {
                         >
                             <a
                                 href="#projects"
-                                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-accent font-bold hover:shadow-lg hover:shadow-cyan-500/25 transition-all transform hover:-translate-y-1 tracking-wider text-white"
+                                className="skeu-btn-primary inline-flex items-center gap-2 px-8 py-4 font-accent font-bold tracking-wider"
+                                style={{ textDecoration: 'none', fontSize: '0.85rem', letterSpacing: '0.08em' }}
                             >
                                 <span>VIEW WORK</span>
                                 <ArrowRight className="w-5 h-5" />
                             </a>
 
-                            <a
-                                href={personalInfo.resume}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="group px-6 py-4 glass rounded-xl font-accent font-bold hover:bg-white/10 transition-all tracking-wider text-white"
-                            >
-                                <Download className="w-5 h-5 inline-block mr-2 group-hover:animate-bounce" />
-                                RESUME
-                            </a>
                         </motion.div>
 
-                        {/* Stats */}
+                        {/* Stat Cards — deeply debossed skeuomorphic counters */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -135,9 +135,20 @@ export function HeroContent() {
                                 { label: "Sprints Completed", value: "∞" },
                                 { label: "Bugs Squashed", value: "200+" }
                             ].map((stat, index) => (
-                                <div key={index} className="text-center glass-card-dark p-4 rounded-xl">
-                                    <div className="text-3xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-400">{stat.value}</div>
-                                    <div className="text-xs mt-1 font-body tracking-wide text-gray-400">{stat.label}</div>
+                                <div key={index} className="text-center skeu-stat p-4">
+                                    <div
+                                        className="text-3xl font-display font-bold"
+                                        style={{
+                                            backgroundImage: 'linear-gradient(135deg, #f59e0b, #f97316)',
+                                            WebkitBackgroundClip: 'text',
+                                            WebkitTextFillColor: 'transparent',
+                                            backgroundClip: 'text',
+                                            filter: 'drop-shadow(0 0 8px rgba(245,158,11,0.3))',
+                                        }}
+                                    >{stat.value}</div>
+                                    <div className="text-[11px] mt-1.5 font-body tracking-wide uppercase" style={{ color: '#94a3b8' }}>
+                                        {stat.label}
+                                    </div>
                                 </div>
                             ))}
                         </motion.div>
@@ -146,36 +157,57 @@ export function HeroContent() {
                     {/* Right Content - Profile Visual */}
                     <div className="relative lg:h-[600px] flex items-center justify-center">
                         <div className="relative w-full max-w-md">
-                            {/* Glow orbs */}
-                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
-                            <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
+                            {/* Ambient glow orbs behind photo */}
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full blur-3xl animate-pulse"
+                                style={{ background: 'radial-gradient(ellipse, rgba(37,99,235,0.15) 0%, transparent 70%)', animationDuration: '4s' }}></div>
+                            <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full blur-3xl"
+                                style={{ background: 'radial-gradient(ellipse, rgba(99,102,241,0.1) 0%, transparent 70%)' }}></div>
 
                             <div className="relative z-10">
-                                <div className="relative group">
-                                    {/* Gradient border */}
-                                    <div className="absolute -inset-1 bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 rounded-3xl blur-sm group-hover:blur-md transition-all opacity-60"></div>
+                                {/* Skeuomorphic photo frame — raised card with gradient bevel border */}
+                                <div className="relative group transition-transform duration-700 hover:-translate-y-2.5 hover:scale-[1.03] cursor-pointer">
+                                    {/* Massive interactive ambient outer glow */}
+                                    <div 
+                                        className="absolute opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none z-0"
+                                        style={{ 
+                                            top: "-30px", bottom: "-30px", left: "-30px", right: "-30px",
+                                            borderRadius: "3rem",
+                                            filter: "blur(40px)",
+                                            background: "radial-gradient(circle at 50% 50%, rgba(59,130,246,0.3) 0%, rgba(124,58,237,0.25) 50%, transparent 100%)" 
+                                        }}
+                                    ></div>
 
-                                    {/* Glass photo container */}
-                                    <div className="relative glass-card-dark rounded-3xl p-2 overflow-hidden">
+                                    {/* Base dynamic LED glow ring */}
+                                    <div className="absolute opacity-30 group-hover:opacity-100 transition-all duration-500 pointer-events-none z-0"
+                                        style={{
+                                            top: "-5px", bottom: "-5px", left: "-5px", right: "-5px",
+                                            borderRadius: "2rem",
+                                            filter: "blur(15px)",
+                                            background: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #7c3aed 100%)'
+                                        }}></div>
+
+                                    {/* Photo container — skeuomorphic raised card */}
+                                    <div className="relative skeu-card rounded-3xl p-[5px] overflow-hidden group-hover:shadow-[0_0_35px_rgba(59,130,246,0.3)] transition-shadow duration-500 z-10">
                                         <img
                                             src={profileImage}
                                             alt="Anupam Sanidhya"
-                                            className="w-full h-auto rounded-2xl"
+                                            className="w-full h-auto rounded-2xl relative z-10"
                                         />
-                                        {/* Glass overlay */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none rounded-2xl"></div>
+                                        {/* Subtle top-left light sheen — simulates studio lighting */}
+                                        <div className="absolute inset-0 rounded-2xl pointer-events-none z-20"
+                                            style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 50%, rgba(0,0,0,0.2) 100%)' }}></div>
                                     </div>
                                 </div>
 
-                                {/* Floating glass cards */}
-                                <div className="absolute -top-6 -left-6 glass-card-dark rounded-xl p-3 transform -rotate-6 hover:rotate-0 transition-all shadow-xl">
-                                    <div className="font-accent font-bold text-xs mb-1 tracking-wider text-cyan-400">📍 LOCATION</div>
-                                    <div className="text-sm font-body font-semibold text-gray-200">{personalInfo.location}</div>
+                                {/* Floating skeuomorphic info cards */}
+                                <div className="absolute -top-6 -left-6 skeu-card rounded-xl p-3 transform -rotate-6 hover:rotate-0 transition-all duration-300 z-50">
+                                    <div className="font-accent font-bold text-xs mb-1 tracking-wider text-blue-400">📍 LOCATION</div>
+                                    <div className="text-sm font-body font-semibold" style={{ color: '#e2e8f0' }}>{personalInfo.location}</div>
                                 </div>
 
-                                <div className="absolute -bottom-6 -right-6 glass-accent-warm rounded-xl p-4 transform rotate-6 hover:rotate-3 transition-all shadow-xl">
-                                    <div className="font-accent font-bold text-xs mb-1 tracking-wider text-orange-300">CURRENTLY EXPLORING</div>
-                                    <div className="text-sm font-body font-semibold text-gray-200">Agentic AI Systems & Building with LLMs</div>
+                                <div className="absolute -bottom-6 -right-6 skeu-card rounded-xl p-4 transform rotate-6 hover:rotate-3 transition-all duration-300 z-50">
+                                    <div className="font-accent font-bold text-xs mb-1 tracking-wider text-amber-400">CURRENTLY EXPLORING</div>
+                                    <div className="text-sm font-body font-semibold" style={{ color: '#e2e8f0' }}>Agentic AI Systems & Building with LLMs</div>
                                 </div>
                             </div>
                         </div>

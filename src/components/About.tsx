@@ -3,7 +3,10 @@ import {
   Rocket,
   Users,
   TrendingUp,
-  ArrowRight,
+  Sparkles,
+  Code2,
+  MessageSquareQuote,
+  Gamepad2,
 } from "lucide-react";
 
 export function About() {
@@ -12,191 +15,293 @@ export function About() {
       icon: Rocket,
       value: "5+",
       label: "Products Launched",
-      gradient: "from-orange-400 to-pink-500",
+      accent: "#2563eb",
+      bg: "#dbeafe",
     },
     {
       icon: Users,
       value: "3",
-      label: "Cross-functional Teams Led",
-      gradient: "from-cyan-400 to-blue-500",
+      label: "Cross-functional Teams",
+      accent: "#7c3aed",
+      bg: "#ede9fe",
     },
     {
       icon: TrendingUp,
       value: "35%",
-      label: "Average Revenue Growth",
-      gradient: "from-green-400 to-emerald-500",
+      label: "Avg. Revenue Growth",
+      accent: "#059669",
+      bg: "#d1fae5",
     },
     {
       icon: Target,
       value: "100%",
-      label: "On-time Delivery Rate",
-      gradient: "from-purple-400 to-pink-500",
+      label: "On-time Delivery",
+      accent: "#ea580c",
+      bg: "#ffedd5",
     },
   ];
 
   return (
     <section
       id="about"
-      className="py-20 px-6 lg:px-8 relative overflow-hidden"
+      className="py-32 px-6 lg:px-12 relative overflow-hidden"
+      style={{ background: "linear-gradient(150deg, #eef2ff 0%, #f5f3ff 50%, #ecfdf5 100%)" }}
     >
-      {/* Glass dividers */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/20 to-transparent"></div>
+      {/* Top accent bar */}
+      <div
+        className="absolute top-0 left-0 right-0 h-1.5"
+        style={{ background: "linear-gradient(90deg, #2563eb, #7c3aed, #06b6d4)" }}
+      />
 
-      {/* Background glow */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+      {/* Vivid background blobs */}
+      <div
+        className="absolute top-20 -left-24 w-72 h-72 rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 70%)", filter: "blur(50px)" }}
+      />
+      <div
+        className="absolute bottom-20 -right-24 w-96 h-96 rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(16,185,129,0.2) 0%, transparent 70%)", filter: "blur(60px)" }}
+      />
 
-      <div className="max-w-7xl mx-auto relative">
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-block mb-6 relative">
-            <div className="px-6 py-3 glass-accent-warm rounded-full font-bold text-orange-300 tracking-widest uppercase text-sm">
-              ABOUT ME
-            </div>
+        <div className="text-center mb-24">
+          <div
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-6 font-bold text-xs uppercase tracking-widest"
+            style={{ background: "#2563eb", color: "#fff", boxShadow: "0 4px 20px rgba(37,99,235,0.4)" }}
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            About Me
           </div>
 
-          <h2 className="text-white mb-6 text-3xl md:text-5xl font-bold font-display">
+          <h2
+            className="text-4xl md:text-5xl font-bold font-display mb-6"
+            style={{ color: "#0f172a" }}
+          >
             Strategy meets{" "}
-            <span className="relative inline-block">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-400">
-                execution
-              </span>
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 to-pink-500 rounded-full opacity-30"></div>
+            <span
+              className="relative inline-block"
+              style={{ color: "#2563eb" }}
+            >
+              execution
+              <span
+                className="absolute -bottom-2 left-0 right-0 h-1.5 rounded-full"
+                style={{ background: "linear-gradient(90deg, #2563eb, #06b6d4)" }}
+              />
             </span>
           </h2>
+          <p className="text-xl font-medium max-w-xl mx-auto" style={{ color: "#334155" }}>
+            A product manager who bridges user empathy with business outcomes.
+          </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Left: Story */}
-          <div className="space-y-6">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 xl:gap-32 items-center mb-24" style={{ marginTop: '5rem' }}>
+          {/* Left: Story Cards */}
+          <div className="flex flex-col flex-1" style={{ gap: '2.5rem' }}>
             {/* Origin Story */}
-            <div className="glass-card-dark rounded-2xl p-8 border-l-4 border-l-orange-400/50">
-              <div className="text-sm font-bold text-orange-400 mb-2 uppercase tracking-wider">Origin Story</div>
-              <p className="text-lg text-gray-300 leading-relaxed">
+            <div
+              className="rounded-2xl p-9 transition-all duration-300 hover:-translate-y-1 relative z-20"
+              style={{
+                background: "#ffffff",
+                borderLeft: "6px solid #2563eb",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+              }}
+            >
+              <div
+                className="flex items-center gap-2 mb-4 text-sm font-black uppercase tracking-widest"
+                style={{ color: "#1d4ed8" }}
+              >
+                <Code2 className="w-4 h-4" />
+                Origin Story
+              </div>
+              <p className="text-lg leading-relaxed font-medium" style={{ color: "#334155" }}>
                 Started as an{" "}
-                <span className="font-bold text-white">
-                  engineer
-                </span>
-                , discovered I loved{" "}
-                <span className="px-2 py-1 bg-orange-500/15 rounded text-orange-300 mx-1 font-medium">
-                  translating user pain into solutions
-                </span>{" "}
-                more than writing code. That's when I knew product management was my calling.
+                <strong className="font-black" style={{ color: "#0f172a" }}>engineer</strong>, discovered I
+                loved{" "}
+                <span
+                  className="font-bold inline-block mx-1 align-baseline relative"
+                  style={{ background: "#fef3c7", color: "#b45309", border: "1px solid #fde68a", padding: "4px 12px 6px 14px", borderRadius: "8px", position: "relative", top: "-1px" }}
+                >translating user pain into solutions</span>{" "}
+                more than writing code. That's when I knew product management was
+                my calling.
               </p>
             </div>
 
             {/* PM Philosophy */}
-            <div className="glass-card-dark rounded-2xl p-8 border-l-4 border-l-cyan-400/50">
-              <div className="text-sm font-bold text-cyan-400 mb-2 uppercase tracking-wider">PM Philosophy</div>
-              <p className="text-lg text-gray-300 leading-relaxed font-medium italic">
+            <div
+              className="rounded-2xl p-9 transition-all duration-300 hover:-translate-y-1 relative z-20"
+              style={{
+                background: "#ffffff",
+                borderLeft: "6px solid #0891b2",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+              }}
+            >
+              <div
+                className="flex items-center gap-2 mb-4 text-sm font-black uppercase tracking-widest"
+                style={{ color: "#0e7490" }}
+              >
+                <MessageSquareQuote className="w-4 h-4" />
+                PM Philosophy
+              </div>
+              <p className="text-lg leading-relaxed font-medium italic" style={{ color: "#334155" }}>
                 "I believe the best PMs are{" "}
-                <span className="px-2 py-1 bg-cyan-500/15 rounded text-cyan-300 mx-1 font-bold not-italic">
-                  translators
-                </span>{" "}
+                <span
+                  className="font-black inline-block mx-1 align-baseline relative"
+                  style={{ background: "#dbeafe", color: "#1d4ed8", border: "1px solid #bfdbfe", padding: "4px 12px 6px 14px", borderRadius: "8px", fontStyle: "normal", position: "relative", top: "-1px" }}
+                >translators</span>{" "}
                 — between{" "}
-                <span className="font-bold text-white not-italic">users & engineers</span>,{" "}
-                <span className="font-bold text-white not-italic">data & intuition</span>,{" "}
-                <span className="font-bold text-white not-italic">vision & execution</span>."
+                <strong className="not-italic font-black" style={{ color: "#0f172a" }}>users & engineers</strong>,{" "}
+                <strong className="not-italic font-black" style={{ color: "#0f172a" }}>data & intuition</strong>,{" "}
+                <strong className="not-italic font-black" style={{ color: "#0f172a" }}>vision & execution</strong>."
               </p>
             </div>
 
             {/* Beyond Work */}
-            <div className="glass-card-dark rounded-2xl p-8 border-l-4 border-l-purple-400/50">
-              <div className="text-sm font-bold text-purple-400 mb-2 uppercase tracking-wider">Beyond Work</div>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                When not building products, you'll find me exploring{" "}
-                <span className="px-2 py-1 bg-purple-500/15 rounded text-purple-300 mx-1 font-medium">
-                  game design
-                </span>{" "}
-                (UX at its finest) or binging{" "}
-                <span className="px-2 py-1 bg-pink-500/15 rounded text-pink-300 mx-1 font-medium">
-                  sci-fi
-                </span>
-                .
-              </p>
-              {/* CTA */}
-              <div className="mt-4 pt-4 border-t border-white/10">
-                <a
-                  href="#projects"
-                  className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors group"
-                >
-                  See how I apply this thinking in my work
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+            <div
+              className="rounded-2xl p-9 transition-all duration-300 hover:-translate-y-1 relative z-20"
+              style={{
+                background: "#ffffff",
+                borderLeft: "6px solid #7c3aed",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+              }}
+            >
+              <div
+                className="flex items-center gap-2 mb-4 text-sm font-black uppercase tracking-widest"
+                style={{ color: "#6d28d9" }}
+              >
+                <Gamepad2 className="w-4 h-4" />
+                Beyond Work
               </div>
+              <p className="text-lg leading-relaxed font-medium" style={{ color: "#334155" }}>
+                When not building products, you'll find me cooking, exploring{" "}
+                <span
+                  className="font-bold inline-block mx-1 align-baseline relative"
+                  style={{ background: "#fae8ff", color: "#a21caf", border: "1px solid #f5d0fe", padding: "4px 12px 6px 14px", borderRadius: "8px", position: "relative", top: "-1px" }}
+                >video games & cinema</span>{" "}
+                or logging them on Letterboxd.
+              </p>
             </div>
           </div>
 
-          {/* Right: Visual Element */}
-          <div className="relative h-full min-h-[400px]">
-            {/* Main card */}
-            <div className="absolute top-0 right-0 w-4/5 h-3/4 bg-gradient-to-br from-orange-500/20 to-pink-500/20 rounded-3xl shadow-2xl transform rotate-6 hover:rotate-3 transition-all">
-              <div className="absolute inset-[1px] glass-card-dark rounded-3xl p-8 flex flex-col justify-between">
-                <div>
-                  <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-pink-500 rounded-xl flex items-center justify-center mb-4">
+          {/* Right: Visual cards */}
+          <div className="relative flex-1 flex items-center justify-center lg:justify-end pr-0 lg:pr-8 pt-8 pb-10">
+            <div className="relative w-full group mx-auto lg:ml-auto lg:mr-0" style={{ maxWidth: '270px', transform: 'translateY(-2.5rem)' }}>
+              {/* Floating badge */}
+              <div
+                className="absolute -top-6 -left-8 px-5 py-2.5 rounded-full font-black text-sm text-white z-50 whitespace-nowrap hidden sm:block transform -rotate-6 group-hover:rotate-0 group-hover:scale-105 transition-all duration-500"
+                style={{
+                  background: "linear-gradient(135deg, #2563eb, #7c3aed)",
+                  boxShadow: "0 10px 30px rgba(99,102,241,0.6)",
+                  border: "2px solid #ffffff"
+                }}
+              >
+                Creative Problem Solver ✨
+              </div>
+
+              {/* Main Approach Card */}
+              <div
+                className="rounded-3xl p-[3px] transform rotate-2 group-hover:rotate-0 group-hover:-translate-y-3 transition-all duration-500 relative z-10 w-full"
+                style={{
+                  background: "linear-gradient(135deg, #2563eb, #7c3aed, #06b6d4)",
+                  boxShadow: "0 20px 60px rgba(99,102,241,0.4)",
+                }}
+              >
+                <div
+                  className="relative flex flex-col items-center"
+                  style={{ background: "#fff", paddingTop: '2.5rem', paddingBottom: '1.5rem', paddingLeft: '1.5rem', paddingRight: '1.5rem', borderRadius: '20px' }}
+                >
+                  {/* Soft color wash */}
+                  <div
+                    className="absolute top-0 right-0 w-48 h-48 rounded-full pointer-events-none"
+                    style={{ background: "radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)", filter: "blur(20px)" }}
+                  />
+
+                  <div
+                    className="mb-4 flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-500 mx-auto"
+                    style={{ background: "linear-gradient(135deg, #2563eb, #7c3aed)", boxShadow: "0 8px 24px rgba(99,102,241,0.5)", width: '3rem', height: '3rem', borderRadius: '12px' }}
+                  >
                     <Target className="w-6 h-6 text-white" />
                   </div>
-                  <div className="font-display font-bold text-2xl text-white mb-3">
+
+                  <h3 className="font-display font-black text-2xl mb-4 relative z-10 text-center" style={{ color: "#1e293b" }}>
                     My Approach
-                  </div>
-                  <div className="space-y-2 text-gray-400">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                      <span>User-first thinking</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
-                      <span>Data-driven decisions</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      <span>Agile execution</span>
-                    </div>
+                  </h3>
+
+                  <div className="relative z-10 flex flex-col items-center w-full" style={{ gap: '0.75rem' }}>
+                    {[
+                      { label: "User-first thinking", bg: "#fef3c7", text: "#92400e", rotateClass: "-rotate-2" },
+                      { label: "Data-driven decisions", bg: "#d1fae5", text: "#065f46", rotateClass: "rotate-3" },
+                      { label: "Agile execution", bg: "#ede9fe", text: "#4c1d95", rotateClass: "-rotate-1" },
+                    ].map((item, index) => (
+                      <div
+                        key={item.label}
+                        className={`flex items-center justify-center py-3.5 px-4 transition-all duration-300 cursor-default relative text-center transform ${item.rotateClass} hover:rotate-0 hover:scale-105 hover:z-20`}
+                        style={{
+                          background: item.bg,
+                          width: '90%',
+                          borderRadius: '3px 15px 5px 15px',
+                          boxShadow: '3px 6px 15px rgba(0,0,0,0.05)'
+                        }}
+                      >
+                        <div className="absolute top-0 left-0 right-0 h-2 rounded-t-sm opacity-50 mix-blend-overlay" style={{ background: 'linear-gradient(180deg, white, transparent)' }} />
+                        <span className="font-semibold italic" style={{ color: item.text, fontSize: '1rem' }}>{item.label}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Smaller overlapping card */}
-            <div className="absolute bottom-0 left-0 w-3/5 glass-card-dark rounded-2xl shadow-xl p-6 transform -rotate-6 hover:-rotate-3 transition-all z-10 border-purple-500/20">
-              <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center mb-2">
-                <TrendingUp className="w-5 h-5 text-white" />
+              {/* Growth Mindset Card */}
+              <div
+                className="absolute p-6 rounded-2xl transform -rotate-3 group-hover:rotate-1 group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-500 z-50"
+                style={{
+                  bottom: "-6rem",
+                  right: "-1rem",
+                  background: "#ffffff",
+                  border: "1px solid #e2e8f0",
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                }}
+              >
+                <div className="flex items-center gap-4">
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: "linear-gradient(135deg, #10b981, #06b6d4)", boxShadow: "0 8px 16px rgba(16,185,129,0.3)" }}
+                  >
+                    <TrendingUp className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-black text-base" style={{ color: "#1e293b" }}>Growth Mindset</div>
+                    <div className="text-sm font-semibold mt-0.5" style={{ color: "#475569" }}>Always learning & improving.</div>
+                  </div>
+                </div>
               </div>
-              <div className="font-display font-bold text-white mb-1">
-                Growth Mindset
-              </div>
-              <div className="text-sm text-gray-400">
-                Always learning, always improving
-              </div>
-            </div>
-
-            {/* Floating element */}
-            <div className="absolute top-1/4 left-0 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-bold text-sm shadow-lg transform -rotate-12">
-              Creative Problem Solver
             </div>
           </div>
         </div>
 
         {/* Impact Highlights */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 lg:mt-24 pt-16 border-t border-indigo-500/10 relative z-20">
           {highlights.map((highlight, index) => (
-            <div key={index} className="group">
+            <div
+              key={index}
+              className="rounded-2xl p-8 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-300 group"
+              style={{
+                background: "#fff",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.07)",
+                border: `2px solid ${highlight.bg}`,
+              }}
+            >
               <div
-                className="h-full rounded-3xl p-[1px] shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 bg-gradient-to-br from-white/10 to-white/5 hover:from-white/15 hover:to-white/10"
+                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+                style={{ background: highlight.accent, boxShadow: `0 8px 24px ${highlight.accent}55` }}
               >
-                <div className="h-full glass-card-dark rounded-[22px] p-6 text-center">
-                  <div
-                    className={`w-12 h-12 bg-gradient-to-br ${highlight.gradient} rounded-xl flex items-center justify-center mx-auto mb-4 transform group-hover:rotate-12 transition-transform shadow-md`}
-                  >
-                    <highlight.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="text-3xl font-display font-bold text-white mb-1">
-                    {highlight.value}
-                  </div>
-                  <div className="text-xs text-gray-400 font-medium leading-tight">
-                    {highlight.label}
-                  </div>
-                </div>
+                <highlight.icon className="w-6 h-6 text-white" />
+              </div>
+              <div className="text-3xl font-black mb-1" style={{ color: "#0f172a" }}>
+                {highlight.value}
+              </div>
+              <div className="text-xs font-bold uppercase tracking-wide" style={{ color: "#64748b" }}>
+                {highlight.label}
               </div>
             </div>
           ))}

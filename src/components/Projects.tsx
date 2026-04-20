@@ -34,34 +34,39 @@ export function Projects() {
         <div className="text-center mb-16 relative">
           <div className="inline-block mb-6 relative">
             <div
-              className="px-6 py-3 glass-accent rounded-full font-accent font-bold tracking-widest text-cyan-400"
-            >
-              <Sparkles className="w-4 h-4 inline mr-2" />
-              FEATURED WORK
-            </div>
+            className="px-6 py-3 skeu-pill font-accent font-bold tracking-widest"
+            style={{ color: '#7dd3fc', fontSize: '0.8rem' }}
+          >
+            <Sparkles className="w-4 h-4 inline mr-2" />
+            FEATURED WORK
+          </div>
             <div
-              className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center text-xs font-bold text-white"
+              className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold"
+              style={{ background: 'linear-gradient(135deg, #f59e0b, #f97316)', color: '#0a0e1b', boxShadow: '0 0 12px rgba(245,158,11,0.5)' }}
             >
               {projects.length}
             </div>
           </div>
 
-          <h2 className="mb-6 relative inline-block text-white">
+          <h2 className="mb-6 relative inline-block" style={{ color: '#f1f5f9' }}>
             Projects I'm{" "}
             <span className="relative">
               <span
-                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-400"
+                className="inline-block text-transparent bg-clip-text"
+                style={{ backgroundImage: 'linear-gradient(135deg, #f59e0b, #f97316)' }}
               >
                 proud of
               </span>
               <Star
-                className="absolute -top-8 -right-8 w-8 h-8 animate-pulse text-orange-400 fill-orange-400"
+                className="absolute -top-8 -right-8 w-8 h-8 animate-pulse"
+                style={{ color: '#f59e0b', fill: '#f59e0b', filter: 'drop-shadow(0 0 8px rgba(245,158,11,0.5))' }}
               />
             </span>
           </h2>
 
           <p
-            className="text-xl max-w-3xl mx-auto font-body text-gray-300"
+            className="text-xl max-w-3xl mx-auto font-body"
+            style={{ color: '#64748b' }}
           >
             Real products solving real problems, with measurable
             impact
@@ -93,30 +98,48 @@ export function Projects() {
                 onClick={() => handleProjectClick(project)}
               >
                 <div
-                  className={`h-full rounded-3xl p-[1px] shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 ${index % 4 === 0
-                      ? "bg-gradient-to-br from-cyan-500/30 to-purple-500/30 hover:from-cyan-500/50 hover:to-purple-500/50"
+                  className={`h-full rounded-3xl p-[2px] transition-all duration-300 transform hover:-translate-y-2 hover:scale-[1.01]`}
+                  style={{
+                    background: index % 4 === 0
+                      ? 'linear-gradient(135deg, rgba(59,130,246,0.5), rgba(99,102,241,0.5))'
                       : index % 4 === 1
-                        ? "bg-gradient-to-br from-orange-500/30 to-amber-500/30 hover:from-orange-500/50 hover:to-amber-500/50"
+                        ? 'linear-gradient(135deg, rgba(245,158,11,0.4), rgba(249,115,22,0.4))'
                         : index % 4 === 2
-                          ? "bg-gradient-to-br from-cyan-500/30 to-blue-500/30 hover:from-cyan-500/50 hover:to-blue-500/50"
-                          : "bg-gradient-to-br from-pink-500/30 to-purple-500/30 hover:from-pink-500/50 hover:to-purple-500/50"
-                    }`}
+                          ? 'linear-gradient(135deg, rgba(14,165,233,0.4), rgba(59,130,246,0.4))'
+                          : 'linear-gradient(135deg, rgba(168,85,247,0.4), rgba(236,72,153,0.4))',
+                    boxShadow: '0 20px 60px rgba(0,0,0,0.5), 0 4px 12px rgba(0,0,0,0.3)',
+                  }}
+                  onMouseEnter={e => {
+                    const glowColor = index % 4 === 0 ? '59,130,246'
+                      : index % 4 === 1 ? '245,158,11'
+                      : index % 4 === 2 ? '14,165,233'
+                      : '168,85,247';
+                    (e.currentTarget as HTMLDivElement).style.boxShadow = `0 24px 80px rgba(0,0,0,0.6), 0 0 40px rgba(${glowColor},0.25), 0 4px 16px rgba(0,0,0,0.4)`;
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLDivElement).style.boxShadow = '0 20px 60px rgba(0,0,0,0.5), 0 4px 12px rgba(0,0,0,0.3)';
+                  }}
                 >
                   <div
-                    className="h-full rounded-[22px] p-8 flex flex-col glass-card-dark"
+                    className="h-full rounded-[22px] p-8 flex flex-col"
+                    style={{
+                      background: 'linear-gradient(145deg, #1b1f2d, #111827)',
+                      boxShadow: 'inset 1px 1px 0px rgba(255,255,255,0.07), inset -1px -1px 0px rgba(0,0,0,0.4)',
+                    }}
                   >
                     {/* Project Header */}
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
                         {index === 0 && (
-                          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 glass-accent rounded-full text-xs font-accent font-bold mb-3 tracking-wider text-cyan-400">
-                            <Star className="w-3 h-3 fill-cyan-400" />
+                          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 skeu-pill rounded-full text-xs font-accent font-bold mb-3 tracking-wider" style={{ color: '#7dd3fc' }}>
+                            <Star className="w-3 h-3" style={{ fill: '#7dd3fc' }} />
                             FEATURED PROJECT
                           </div>
                         )}
                         {index !== 0 && (
                           <div
-                            className="inline-block px-3 py-1 glass-accent-warm rounded-full text-xs font-accent font-bold mb-3 tracking-wider text-orange-300"
+                            className="inline-block px-3 py-1 skeu-pill rounded-full text-xs font-accent font-bold mb-3 tracking-wider"
+                            style={{ color: '#f59e0b' }}
                           >
                             {project.role ||
                               project.company ||
@@ -124,7 +147,8 @@ export function Projects() {
                           </div>
                         )}
                         <h3
-                          className="mb-2 transition-colors text-white font-semibold group-hover:text-cyan-300"
+                          className="mb-2 transition-colors font-semibold group-hover:text-blue-400"
+                          style={{ color: '#f1f5f9' }}
                         >
                           {project.title}
                         </h3>
@@ -134,7 +158,7 @@ export function Projects() {
                         <div className="flex-shrink-0 ml-2">
                           <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center transform rotate-12 group-hover:rotate-0 transition-transform">
                             <Star
-                              className="w-6 h-6 text-white fill-white"
+                              className="w-6 h-6 text-zinc-950 fill-white"
                             />
                           </div>
                         </div>
@@ -142,7 +166,8 @@ export function Projects() {
                     </div>
 
                     <p
-                      className={`mb-6 font-body text-gray-400 ${isFeatured ? "text-lg" : ""}`}
+                      className={`mb-6 font-body ${isFeatured ? "text-lg" : ""}`}
+                      style={{ color: '#94a3b8' }}
                     >
                       {project.description}
                     </p>
@@ -153,14 +178,15 @@ export function Projects() {
                         {project.metrics.map((item, i) => (
                           <div
                             key={i}
-                            className="text-center p-3 glass-subtle rounded-xl"
+                            className="text-center skeu-stat p-3 rounded-xl"
                           >
                             <div
-                              className="text-2xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-400"
+                              className="text-2xl font-display font-bold"
+                              style={{ backgroundImage: 'linear-gradient(135deg, #f59e0b, #f97316)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', filter: 'drop-shadow(0 0 6px rgba(245,158,11,0.3))' }}
                             >
                               {item.value}
                             </div>
-                            <div className="text-xs text-gray-500 mt-1 font-body tracking-wide">
+                            <div className="text-xs mt-1 font-body tracking-wide" style={{ color: '#64748b' }}>
                               {item.label}
                             </div>
                           </div>
@@ -179,8 +205,8 @@ export function Projects() {
                         .map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1 glass-subtle rounded-lg text-sm font-accent tracking-wider text-gray-300 hover:text-cyan-300 hover:bg-cyan-500/10 transition-all"
-                          >
+                          className="px-3 py-1 skeu-pill rounded-lg text-sm font-accent tracking-wider transition-all"
+                          style={{ color: '#94a3b8' }}>
                             {tech}
                           </span>
                         ))}
@@ -193,7 +219,7 @@ export function Projects() {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-sm font-accent tracking-wider text-gray-400 transition-colors hover:text-cyan-400"
+                          className="flex items-center gap-2 text-sm font-accent tracking-wider text-zinc-500 transition-colors hover:text-blue-600"
                           onClick={(e) => e.stopPropagation()}
                         >
                           <Github className="w-4 h-4" />
@@ -205,7 +231,7 @@ export function Projects() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-sm font-accent font-bold hover:shadow-lg hover:shadow-cyan-500/20 transition-all group/link tracking-wider text-white"
+                          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-sm font-accent font-bold hover:shadow-lg hover:shadow-cyan-500/20 transition-all group/link tracking-wider text-zinc-950"
                           onClick={(e) => e.stopPropagation()}
                         >
                           VIEW PROJECT
