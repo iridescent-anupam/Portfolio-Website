@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Star, Award } from "lucide-react";
+import { Calendar, MapPin, Star, Award, ExternalLink } from "lucide-react";
 import { education, certifications, awards } from "../data/content";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
@@ -117,7 +117,17 @@ export function Education() {
 
                     <div className="flex-1 min-w-0">
                       <h4 className="font-bold text-zinc-950 mb-1 group-hover:text-blue-600 transition-colors">
-                        {cert.title}
+                        {cert.credentialUrl ? (
+                          <a 
+                            href={cert.credentialUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="hover:underline flex items-center gap-1.5"
+                          >
+                            {cert.title}
+                            <ExternalLink className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity" />
+                          </a>
+                        ) : cert.title}
                       </h4>
                       <p className="text-sm text-zinc-500 mb-2">{cert.issuer}</p>
                       <div className="flex items-center gap-2 text-xs text-gray-500">

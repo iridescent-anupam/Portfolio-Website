@@ -7,6 +7,8 @@ import canvasPdf from "../assets/Canvas+ Events Presentation.pdf";
 import canvasMaterialsPdf from "../assets/Canvas+ Events Captured materials.pdf";
 import canvaTeamsPdf from "../assets/Canva Teams & Collaboration Friction.pdf";
 import canvaTeamsImg from "../assets/Canva Teams & Collaboration Friction.png";
+import borrowdLogo from "../assets/Borrowd-logo.png";
+import skillupLogo from "../assets/Skillup_logo.svg";
 
 // Personal Information
 export const personalInfo = {
@@ -492,6 +494,53 @@ The research focused on identifying key influencers, analyzing community structu
 // Experience
 export const experience = [
   {
+    id: "borrowd-pm",
+    role: "Product Manager",
+    company: "Borrow'd",
+    location: "Seattle, WA, US",
+    period: "Feb 2026 - Present",
+    logo: borrowdLogo,
+    description:
+      "Borrow'd is a nonprofit, community-powered platform that makes it easy to share resources, reduce environmental impact, and strengthen local connections.",
+    achievements: [
+      "Drove a 25% increase in peer-to-peer inventory listings and prevented borrower churn by launching “Community Requests”, a feature that converts zero-result searches into actionable requests for unlisted items.",
+      "Streamlined asset recovery to achieve a 20% lift in repeat lending, architecting a structured Item Return & Dispute workflow that replaces off-platform friction with targeted notifications.",
+      "Translated complex Figma designs into granular, technical specifications that reduced engineering ambiguity and expedited sprint velocity.",
+      "Accelerated the transition from early-stage builds to production readiness by implementing a prioritized backlog and a rigorous UAT framework, ensuring 100% feature alignment with functional logic ahead of launch."
+    ],
+    skills: [
+      "Product Strategy",
+      "Figma",
+      "Agile",
+      "User Acceptance Testing (UAT)",
+      "UI/UX",
+      "Feature Launch"
+    ],
+  },
+  {
+    id: "tvw-pm",
+    role: "Product Manager (Capstone)",
+    company: "Teach with TV Washington",
+    location: "Seattle, WA, US",
+    period: "Jun 2025 - Aug 2025",
+    logo: "https://teachwithtvw.org/wp-content/uploads/2023/05/TWT_FeatureImage_1200x628.jpg",
+    description:
+      "Led product delivery of a statewide civic-education platform on Cursor, resulting in a functional platform that increased youth civic engagement.",
+    achievements: [
+      "Led product delivery of a statewide civic-education platform on Cursor, translating stakeholder needs into technical specifications and user stories using Jira, resulting in a functional platform that increased youth civic engagement.",
+      "Built the platform with an accessibility-first design (WCAG), created comprehensive technical documentation, and developed Python-based automated data pipelines, ensuring 100% accuracy for the public-facing directory."
+    ],
+    skills: [
+      "Cursor",
+      "Jira",
+      "WCAG Accessibility",
+      "Technical Documentation",
+      "Python",
+      "Data Pipelines",
+      "Civic Tech"
+    ],
+  },
+  {
     id: "lexmark-tpm2",
     role: "Technical Product Manager 2",
     company: "Lexmark International",
@@ -501,11 +550,10 @@ export const experience = [
     description:
       "Led product strategy and development for enterprise web applications, achieving 40% improvement in release velocity and 99.9% uptime for 1000+ global users.",
     achievements: [
-      "Accelerated product adoption by 30% across 5 global markets by aligning roadmap to business OKRs & KPIs, introducing data-driven prioritization, and quarterly business reviews",
-      "Improved release velocity by 40% through SAFe® agile based sprint planning & execution, standardizing backlog and acceptance criteria, reducing requirement-related defects by 25%",
-      "Doubled internal operational efficiency by launching a ReactJS & FluentUI powered web portal with RESTful APIs and regression test automation, supporting 1000+ global users with 99.9% uptime",
-      "Increased B2B partner sales by 10% and reduced transactional errors by 25% by redesigning parts disposition & claims workflow and automating CI/CD post-launch validation pipelines",
-      "F2F 2023 Participation: Built Power Automate flow using AI Builder for multilingual case creation from email within 2 minutes",
+      "Increased product adoption by 30% across five global markets, leading the end-to-end product lifecycle and execution for partner-facing workflows by aligning quarterly OKRs with behavioral data.",
+      "Launched a multi-modal AI workflow leveraging Object Detection, Classification and NLP models to process multilingual emails and images, automating case creation and reducing customer response time to under 2 minutes.",
+      "Led the 0→1 launch of a Product Service web app by owning API schema design and UX collaboration, doubling operational efficiency against reliability and performance KPIs for 10,000+ global users with 99.9% uptime.",
+      "Cut release cycle time from 12 weeks to 8 weeks by driving automated CI/CD pipelines and managing product backlogs and user stories under SAFe® agile principles, reducing requirement-related defects by 25%.",
     ],
     skills: [
       "ServiceNow",
@@ -536,10 +584,11 @@ export const experience = [
     description:
       "Spearheaded Field Service Mobile App development and Microsoft Dynamics 365 CRM enhancements, improving performance by 50% and elevating NPS by 15 points.",
     achievements: [
-      "Spearheaded Field Service Mobile App (FSMA) roadmap & development, improving app's performance by 50% and deploying 15+ critical features on MVP across NA, LA, EMEA, boosting field technician efficiency",
-      "Reduced order processing errors by 15%, ensuring business continuity across EMEA, by resolving system-level tax and RMA logic issues via proactive stakeholder alignment",
-      "Improved global communications accuracy by 30% by re-architecting a multilingual Notification Engine (19 languages) with Azure serverless functions and A/B testing enhancements",
-      "Elevated NPS by 15 points by resolving 100+ high-impact Dynamics 365 CRM defects and enhancing D365-SAP-MDM data integration, reducing complaints by 20%",
+      "Strategized the Field Service Mobile App (FSMA) roadmap, prioritizing offline-sync capabilities and core redesign, saving 10 minutes per service order and improving application efficiency by 50% across NA, LATAM, and EMEA.",
+      "Led the redesign of a multilingual notification engine serving 10k+ daily events (19 languages) by combining user research, A/B testing, and Azure serverless architecture, reducing communication failures by 30%.",
+      "Drove a 10% increase in B2B sales and a 30% lift in claim-to-order conversion by redesigning Parts Disposition and Claims workflows for 100,000+ global partners through automated validation logic and operational dashboards.",
+      "Established data contracts to reconcile 50,000+ customer records across Dynamics 365, SAP, and MDM by defining schema mappings, validation rules, and error-handling workflows, cutting integration sync failure rates by 80%.",
+      "Elevated NPS by 15 points by resolving 100+ high-impact Dynamics 365 CRM defects, and reduced compliance risk and EMEA order processing errors by 15% through stakeholder collaboration on system-level tax and RMA logic.",
     ],
     skills: [
       "ServiceNow",
@@ -674,6 +723,9 @@ export const skills = [
       "Postman",
       "Git",
       "Jira",
+      "Antigravity",
+      "Claude Code",
+      "Cursor"
     ],
   },
 ];
@@ -681,11 +733,22 @@ export const skills = [
 // Certifications
 export const certifications = [
   {
+    id: "skillup-pm",
+    title: "Product Management: Foundations & Stakeholder Collaboration",
+    issuer: "SkillUp",
+    date: "Dec 2025",
+    credentialId: "JJYQCDCOPE41",
+    credentialUrl: "https://www.coursera.org/verify/JJYQCDCOPE41",
+    logo: skillupLogo,
+    skills: ["Product Management", "Stakeholder Collaboration"],
+  },
+  {
     id: "ibm-pm",
     title: "Product Management: An Introduction",
     issuer: "Coursera (IBM)",
     date: "Jan 2025",
     credentialId: "15XDPM78WDTT",
+    credentialUrl: "https://www.credly.com/badges/63cf4503-c418-4275-be2f-52719f744752/public_url",
     logo: "https://images.credly.com/images/6abd5c40-4663-4c4c-ab4e-ea4a86269db6/twitter_thumb_201604_image.png",
     skills: [
       "Product Management",
@@ -699,6 +762,7 @@ export const certifications = [
     issuer: "Microsoft",
     date: "Nov 2022",
     credentialId: "I492-8347",
+    credentialUrl: "https://www.credly.com/badges/e463681b-4bf0-4c9f-b241-232d9773aa52/linked_in_profile",
     logo: "https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png",
     skills: ["Microsoft Azure", "Azure Functions"],
   },
@@ -709,6 +773,7 @@ export const certifications = [
     issuer: "Microsoft",
     date: "Aug 2021",
     credentialId: "H942-5037",
+    credentialUrl: "https://www.credly.com/badges/60a40fc4-9fbe-4b9e-b7fa-1817c967aa17?source=linked_in_profile",
     logo: "https://images.credly.com/images/42992295-0ee2-4527-982d-e51efbec40fc/dynamics365-fundamentals-crm-600x600.png",
     skills: [
       "Microsoft Dynamics CRM",
