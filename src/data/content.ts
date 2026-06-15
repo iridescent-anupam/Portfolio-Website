@@ -503,9 +503,8 @@ export const experience = [
     description:
       "Borrow'd is a nonprofit, community-powered platform that makes it easy to share resources, reduce environmental impact, and strengthen local connections.",
     achievements: [
-      "Drove a 25% increase in peer-to-peer inventory listings and prevented borrower churn by launching “Community Requests”, a feature that converts zero-result searches into actionable requests for unlisted items.",
-      "Streamlined asset recovery to achieve a 20% lift in repeat lending, architecting a structured Item Return & Dispute workflow that replaces off-platform friction with targeted notifications.",
-      "Translated complex Figma designs into granular, technical specifications that reduced engineering ambiguity and expedited sprint velocity.",
+      "Drove the platform’s go-to-market strategy and onboarding roadmap, deploying automated email flows and targeted user engagement nudges to accelerate community growth, achieving a 25% increase in peer-to-peer inventory listings.",
+      "Streamlined asset recovery to achieve a 20% lift in repeat lending by conducting structured user discovery and feedback, architecting an Item Return and Dispute workflow that reduced friction with targeted notifications.",
       "Accelerated the transition from early-stage builds to production readiness by implementing a prioritized backlog and a rigorous UAT framework, ensuring 100% feature alignment with functional logic ahead of launch."
     ],
     skills: [
@@ -551,9 +550,9 @@ export const experience = [
       "Led product strategy and development for enterprise web applications, achieving 40% improvement in release velocity and 99.9% uptime for 1000+ global users.",
     achievements: [
       "Increased product adoption by 30% across five global markets, leading the end-to-end product lifecycle and execution for partner-facing workflows by aligning quarterly OKRs with behavioral data.",
-      "Launched a multi-modal AI workflow leveraging Object Detection, Classification and NLP models to process multilingual emails and images, automating case creation and reducing customer response time to under 2 minutes.",
+      "Launched a multi-modal AI workflow leveraging Object Detection, Classification and NLP model routing to process multilingual data, automating case creation to reduce customer response time to under 2 minutes.",
+      "Drove a 10% increase in B2B sales and a 30% lift in claim-to-order conversion by redesigning Parts Disposition and Claims workflows for 100,000+ global partners through automated validation logic and operational dashboards.",
       "Led the 0→1 launch of a Product Service web app by owning API schema design and UX collaboration, doubling operational efficiency against reliability and performance KPIs for 10,000+ global users with 99.9% uptime.",
-      "Cut release cycle time from 12 weeks to 8 weeks by driving automated CI/CD pipelines and managing product backlogs and user stories under SAFe® agile principles, reducing requirement-related defects by 25%.",
     ],
     skills: [
       "ServiceNow",
@@ -584,11 +583,11 @@ export const experience = [
     description:
       "Spearheaded Field Service Mobile App development and Microsoft Dynamics 365 CRM enhancements, improving performance by 50% and elevating NPS by 15 points.",
     achievements: [
-      "Strategized the Field Service Mobile App (FSMA) roadmap, prioritizing offline-sync capabilities and core redesign, saving 10 minutes per service order and improving application efficiency by 50% across NA, LATAM, and EMEA.",
+      "Strategized the Field Service Mobile App (FSMA) roadmap and core design across NA, LATAM, and EMEA, prioritizing offline-sync capabilities to improve application efficiency by 50% and saved 10 minutes per service order, driving $2M in annualized operational savings.",
       "Led the redesign of a multilingual notification engine serving 10k+ daily events (19 languages) by combining user research, A/B testing, and Azure serverless architecture, reducing communication failures by 30%.",
-      "Drove a 10% increase in B2B sales and a 30% lift in claim-to-order conversion by redesigning Parts Disposition and Claims workflows for 100,000+ global partners through automated validation logic and operational dashboards.",
-      "Established data contracts to reconcile 50,000+ customer records across Dynamics 365, SAP, and MDM by defining schema mappings, validation rules, and error-handling workflows, cutting integration sync failure rates by 80%.",
-      "Elevated NPS by 15 points by resolving 100+ high-impact Dynamics 365 CRM defects, and reduced compliance risk and EMEA order processing errors by 15% through stakeholder collaboration on system-level tax and RMA logic.",
+      " Reduced integration sync failure rates by 80% by establishing data contracts to reconcile 50,000+ customer records across Dynamics 365, SAP, and MDM, defining schema mappings, validation rules, and error-handling workflows.",
+      "Cut release cycle time from 12 weeks to 8 weeks by driving automated CI/CD pipelines and managing product backlogs and user stories under SAFe® agile principles, reducing requirement-related defects by 25%.",
+      "Elevated NPS by 15 points by resolving 100+ high-impact Dynamics 365 CRM issues, and reduced compliance risk and EMEA order processing errors by 15% through stakeholder collaboration on system-level tax and RMA logic.",
     ],
     skills: [
       "ServiceNow",
